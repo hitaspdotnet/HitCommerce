@@ -1,7 +1,26 @@
 {
-  "culture": "en",
-  "texts": {
-    "MyAccount":  "My account",
-    "SamplePageMessage": "A sample page for the Core module"
+  "Culture": "en",
+  "Texts": {
+    "MyAccount": "My account",
+    "SamplePageMessage": "A sample page for the Core module",
+    "Permission:Countries": "Countries",
+    "Permission:Core": "Core",
+    "Permission:Create": "Create",
+    "Permission:Edit": "Edit",
+    "Permission:Delete": "Delete",
+    "Countries": "Countries",
+    "NewCountry": "New Country",
+    "Actions": "Actions",
+    "SuccessfullyDeleted": "Successfully deleted",
+    "DeleteConfirmationMessage": "Are you sure you want to delete this record?",
+    "Search": "Search",
+    "Pick": "Pick",
+    "SeeAdvancedFilters": "Advanced filters",
+    "Name": "Name",
+    "Code3": "Code 3",
+    "IsBillingEnabled": "Is Billing Enabled",
+    "IsShippingEnabled": "Is Shipping Enabled",
+    "Menu:Countries": "Countries",
+    "Menu:Core": "Core"
   }
 }

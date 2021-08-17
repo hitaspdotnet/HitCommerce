@@ -1,11 +1,9 @@
-﻿namespace Hitasp.HitCommerce.Core.Web.Menus
+namespace Hitasp.HitCommerce.Core.Web.Menus
 {
     public class CoreMenus
     {
         public const string Prefix = "Core";
 
-        //Add your menu items here...
-        //public const string Home = Prefix + ".MyNewMenuItem";
-
+        public const string Countries = Prefix + ".Countries";
     }
 }

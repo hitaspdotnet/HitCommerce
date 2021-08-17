@@ -1,0 +1,33 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Hitasp.HitCommerce.Core.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using Hitasp.HitCommerce.Core.Web.Pages.Core.Countries
+@using Hitasp.HitCommerce.Core.Countries;
+@using System.Globalization
+@inject IHtmlLocalizer<CoreResource> L
+@model CreateModalModel
+@{
+    Layout = null;
+}
+
+<form data-ajaxForm="true" asp-page="/Core/Countries/CreateModal" autocomplete="off">
+    <abp-modal>
+        <abp-modal-header title="@L["NewCountry"].Value"></abp-modal-header>
+
+        <abp-modal-body>
+            
+            <abp-input asp-for="Country.Name"/>
+
+            <abp-input asp-for="Country.Code3"/>
+
+            <abp-input asp-for="Country.IsBillingEnabled"/>
+
+            <abp-input asp-for="Country.IsShippingEnabled"/>
+
+            
+        </abp-modal-body>
+
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
+    </abp-modal>
+</form>

@@ -2,6 +2,6 @@
 {
     public static class CoreErrorCodes
     {
-        //Add your business exception error codes here...
+        public const string CountryAlreadyExist = "HitCommerceCore:0001";
     }
 }

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.DependencyInjection;
 using Hitasp.HitCommerce.Core.Localization;
 using Hitasp.HitCommerce.Core.Web.Menus;
@@ -53,6 +53,7 @@ namespace Hitasp.HitCommerce.Core.Web
             Configure<RazorPagesOptions>(options =>
             {
                 //Configure authorization.
+                options.Conventions.AuthorizePage("/Countries/Index", CorePermissions.Countries.Default);
             });
         }
     }
