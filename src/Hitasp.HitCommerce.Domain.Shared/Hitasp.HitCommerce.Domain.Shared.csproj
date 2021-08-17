@@ -17,7 +17,7 @@
     <PackageReference Include="Volo.Abp.FeatureManagement.Domain.Shared" Version="4.4.0" />
     <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Shared" Version="4.4.0" />
     <PackageReference Include="Volo.Abp.SettingManagement.Domain.Shared" Version="4.4.0" />
-  </ItemGroup>
+  <ProjectReference Include="..\..\modules\Hitasp.HitCommerce.ActivityLog\src\Hitasp.HitCommerce.ActivityLog.Domain.Shared\Hitasp.HitCommerce.ActivityLog.Domain.Shared.csproj" /></ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Localization\HitCommerce\*.json" />

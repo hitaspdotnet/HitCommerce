@@ -40,6 +40,7 @@ using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.UI;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
+using Hitasp.HitCommerce.ActivityLog.Web;
 
 namespace Hitasp.HitCommerce.Web
 {
@@ -58,6 +59,7 @@ namespace Hitasp.HitCommerce.Web
         typeof(AbpAspNetCoreSerilogModule),
         typeof(AbpSwashbuckleModule)
         )]
+    [DependsOn(typeof(ActivityLogWebModule))]
     public class HitCommerceWebModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)

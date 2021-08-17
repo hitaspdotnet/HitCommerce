@@ -10,7 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Hitasp.HitCommerce.Domain\Hitasp.HitCommerce.Domain.csproj" />
     <ProjectReference Include="..\Hitasp.HitCommerce.Application.Contracts\Hitasp.HitCommerce.Application.Contracts.csproj" />
-  </ItemGroup>
+  <ProjectReference Include="..\..\modules\Hitasp.HitCommerce.ActivityLog\src\Hitasp.HitCommerce.ActivityLog.Application\Hitasp.HitCommerce.ActivityLog.Application.csproj" /></ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Account.Application" Version="4.4.0" />
