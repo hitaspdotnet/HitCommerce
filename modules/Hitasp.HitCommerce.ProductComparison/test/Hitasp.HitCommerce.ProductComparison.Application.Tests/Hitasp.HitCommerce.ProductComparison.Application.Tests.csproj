@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Hitasp.HitCommerce.ProductComparison</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Hitasp.HitCommerce.ProductComparison.Application\Hitasp.HitCommerce.ProductComparison.Application.csproj" />
+    <ProjectReference Include="..\Hitasp.HitCommerce.ProductComparison.Domain.Tests\Hitasp.HitCommerce.ProductComparison.Domain.Tests.csproj" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.1" />
+  </ItemGroup>
+
+</Project>
