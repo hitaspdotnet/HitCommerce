@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Hitasp.HitCommerce.Application.Contracts\Hitasp.HitCommerce.Application.Contracts.csproj" />
-  <ProjectReference Include="..\..\modules\Hitasp.HitCommerce.ActivityLog\src\Hitasp.HitCommerce.ActivityLog.HttpApi\Hitasp.HitCommerce.ActivityLog.HttpApi.csproj" /><ProjectReference Include="..\..\modules\Hitasp.HitCommerce.Catalog\src\Hitasp.HitCommerce.Catalog.HttpApi\Hitasp.HitCommerce.Catalog.HttpApi.csproj" /><ProjectReference Include="..\..\modules\Hitasp.HitCommerce.Cms\src\Hitasp.HitCommerce.Cms.HttpApi\Hitasp.HitCommerce.Cms.HttpApi.csproj" /></ItemGroup>
+  <ProjectReference Include="..\..\modules\Hitasp.HitCommerce.ActivityLog\src\Hitasp.HitCommerce.ActivityLog.HttpApi\Hitasp.HitCommerce.ActivityLog.HttpApi.csproj" /><ProjectReference Include="..\..\modules\Hitasp.HitCommerce.Catalog\src\Hitasp.HitCommerce.Catalog.HttpApi\Hitasp.HitCommerce.Catalog.HttpApi.csproj" /><ProjectReference Include="..\..\modules\Hitasp.HitCommerce.Cms\src\Hitasp.HitCommerce.Cms.HttpApi\Hitasp.HitCommerce.Cms.HttpApi.csproj" /><ProjectReference Include="..\..\modules\Hitasp.HitCommerce.Contacts\src\Hitasp.HitCommerce.Contacts.HttpApi\Hitasp.HitCommerce.Contacts.HttpApi.csproj" /></ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Account.HttpApi" Version="4.4.0" />

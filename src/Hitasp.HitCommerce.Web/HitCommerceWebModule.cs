@@ -43,6 +43,7 @@ using Volo.Abp.VirtualFileSystem;
 using Hitasp.HitCommerce.ActivityLog.Web;
 using Hitasp.HitCommerce.Catalog.Web;
 using Hitasp.HitCommerce.Cms.Web;
+using Hitasp.HitCommerce.Contacts.Web;
 
 namespace Hitasp.HitCommerce.Web
 {
@@ -64,6 +65,7 @@ namespace Hitasp.HitCommerce.Web
     [DependsOn(typeof(ActivityLogWebModule))]
     [DependsOn(typeof(CatalogWebModule))]
     [DependsOn(typeof(CmsWebModule))]
+    [DependsOn(typeof(ContactsWebModule))]
     public class HitCommerceWebModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)

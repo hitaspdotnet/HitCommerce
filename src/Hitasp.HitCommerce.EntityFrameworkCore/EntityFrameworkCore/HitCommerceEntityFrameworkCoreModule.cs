@@ -13,6 +13,7 @@ using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using Hitasp.HitCommerce.ActivityLog.EntityFrameworkCore;
 using Hitasp.HitCommerce.Catalog.EntityFrameworkCore;
 using Hitasp.HitCommerce.Cms.EntityFrameworkCore;
+using Hitasp.HitCommerce.Contacts.EntityFrameworkCore;
 
 namespace Hitasp.HitCommerce.EntityFrameworkCore
 {
@@ -31,6 +32,7 @@ namespace Hitasp.HitCommerce.EntityFrameworkCore
     [DependsOn(typeof(ActivityLogEntityFrameworkCoreModule))]
     [DependsOn(typeof(CatalogEntityFrameworkCoreModule))]
     [DependsOn(typeof(CmsEntityFrameworkCoreModule))]
+    [DependsOn(typeof(ContactsEntityFrameworkCoreModule))]
     public class HitCommerceEntityFrameworkCoreModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)

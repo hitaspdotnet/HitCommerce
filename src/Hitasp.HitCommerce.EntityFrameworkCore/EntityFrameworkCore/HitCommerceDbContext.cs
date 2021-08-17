@@ -15,6 +15,7 @@ using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using Hitasp.HitCommerce.ActivityLog.EntityFrameworkCore;
 using Hitasp.HitCommerce.Catalog.EntityFrameworkCore;
 using Hitasp.HitCommerce.Cms.EntityFrameworkCore;
+using Hitasp.HitCommerce.Contacts.EntityFrameworkCore;
 
 namespace Hitasp.HitCommerce.EntityFrameworkCore
 {
@@ -87,6 +88,7 @@ namespace Hitasp.HitCommerce.EntityFrameworkCore
             builder.ConfigureActivityLog();
             builder.ConfigureCatalog();
             builder.ConfigureCms();
+            builder.ConfigureContacts();
         }
     }
 }

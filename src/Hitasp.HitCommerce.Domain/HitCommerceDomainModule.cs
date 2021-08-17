@@ -16,6 +16,7 @@ using Volo.Abp.TenantManagement;
 using Hitasp.HitCommerce.ActivityLog;
 using Hitasp.HitCommerce.Catalog;
 using Hitasp.HitCommerce.Cms;
+using Hitasp.HitCommerce.Contacts;
 
 namespace Hitasp.HitCommerce
 {
@@ -35,6 +36,7 @@ namespace Hitasp.HitCommerce
     [DependsOn(typeof(ActivityLogDomainModule))]
     [DependsOn(typeof(CatalogDomainModule))]
     [DependsOn(typeof(CmsDomainModule))]
+    [DependsOn(typeof(ContactsDomainModule))]
     public class HitCommerceDomainModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)

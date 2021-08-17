@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Hitasp.HitCommerce.Contacts</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Hitasp.HitCommerce.Contacts.Application\Hitasp.HitCommerce.Contacts.Application.csproj" />
+    <ProjectReference Include="..\Hitasp.HitCommerce.Contacts.Domain.Tests\Hitasp.HitCommerce.Contacts.Domain.Tests.csproj" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.1" />
+  </ItemGroup>
+
+</Project>
