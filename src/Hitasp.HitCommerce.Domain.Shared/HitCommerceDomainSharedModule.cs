@@ -20,6 +20,7 @@ using Hitasp.HitCommerce.Core;
 using Hitasp.HitCommerce.Inventory;
 using Hitasp.HitCommerce.Orders;
 using Hitasp.HitCommerce.Payments;
+using Hitasp.HitCommerce.Pricing;
 
 namespace Hitasp.HitCommerce
 {
@@ -41,6 +42,7 @@ namespace Hitasp.HitCommerce
     [DependsOn(typeof(InventoryDomainSharedModule))]
     [DependsOn(typeof(OrdersDomainSharedModule))]
     [DependsOn(typeof(PaymentsDomainSharedModule))]
+    [DependsOn(typeof(PricingDomainSharedModule))]
     public class HitCommerceDomainSharedModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)

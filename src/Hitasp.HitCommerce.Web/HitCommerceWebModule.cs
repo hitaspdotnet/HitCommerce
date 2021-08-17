@@ -48,6 +48,7 @@ using Hitasp.HitCommerce.Core.Web;
 using Hitasp.HitCommerce.Inventory.Web;
 using Hitasp.HitCommerce.Orders.Web;
 using Hitasp.HitCommerce.Payments.Web;
+using Hitasp.HitCommerce.Pricing.Web;
 
 namespace Hitasp.HitCommerce.Web
 {
@@ -74,6 +75,7 @@ namespace Hitasp.HitCommerce.Web
     [DependsOn(typeof(InventoryWebModule))]
     [DependsOn(typeof(OrdersWebModule))]
     [DependsOn(typeof(PaymentsWebModule))]
+    [DependsOn(typeof(PricingWebModule))]
     public class HitCommerceWebModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)

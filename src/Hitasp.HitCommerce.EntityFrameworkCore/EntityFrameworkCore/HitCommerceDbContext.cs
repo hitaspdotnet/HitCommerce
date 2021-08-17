@@ -20,6 +20,7 @@ using Hitasp.HitCommerce.Core.EntityFrameworkCore;
 using Hitasp.HitCommerce.Inventory.EntityFrameworkCore;
 using Hitasp.HitCommerce.Orders.EntityFrameworkCore;
 using Hitasp.HitCommerce.Payments.EntityFrameworkCore;
+using Hitasp.HitCommerce.Pricing.EntityFrameworkCore;
 
 namespace Hitasp.HitCommerce.EntityFrameworkCore
 {
@@ -97,6 +98,7 @@ namespace Hitasp.HitCommerce.EntityFrameworkCore
             builder.ConfigureInventory();
             builder.ConfigureOrders();
             builder.ConfigurePayments();
+            builder.ConfigurePricing();
         }
     }
 }
