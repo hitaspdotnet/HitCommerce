@@ -11,6 +11,8 @@ using Hitasp.HitCommerce.Catalog;
 using Hitasp.HitCommerce.Cms;
 using Hitasp.HitCommerce.Contacts;
 using Hitasp.HitCommerce.Core;
+using Hitasp.HitCommerce.Inventory;
+using Hitasp.HitCommerce.Orders;
 
 namespace Hitasp.HitCommerce
 {
@@ -28,6 +30,8 @@ namespace Hitasp.HitCommerce
     [DependsOn(typeof(CmsHttpApiClientModule))]
     [DependsOn(typeof(ContactsHttpApiClientModule))]
     [DependsOn(typeof(CoreHttpApiClientModule))]
+    [DependsOn(typeof(InventoryHttpApiClientModule))]
+    [DependsOn(typeof(OrdersHttpApiClientModule))]
     public class HitCommerceHttpApiClientModule : AbpModule
     {
         public const string RemoteServiceName = "Default";

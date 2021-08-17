@@ -17,6 +17,8 @@ using Hitasp.HitCommerce.Catalog;
 using Hitasp.HitCommerce.Cms;
 using Hitasp.HitCommerce.Contacts;
 using Hitasp.HitCommerce.Core;
+using Hitasp.HitCommerce.Inventory;
+using Hitasp.HitCommerce.Orders;
 
 namespace Hitasp.HitCommerce
 {
@@ -35,6 +37,8 @@ namespace Hitasp.HitCommerce
     [DependsOn(typeof(CmsDomainSharedModule))]
     [DependsOn(typeof(ContactsDomainSharedModule))]
     [DependsOn(typeof(CoreDomainSharedModule))]
+    [DependsOn(typeof(InventoryDomainSharedModule))]
+    [DependsOn(typeof(OrdersDomainSharedModule))]
     public class HitCommerceDomainSharedModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)

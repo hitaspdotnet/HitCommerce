@@ -13,6 +13,8 @@ using Hitasp.HitCommerce.Catalog;
 using Hitasp.HitCommerce.Cms;
 using Hitasp.HitCommerce.Contacts;
 using Hitasp.HitCommerce.Core;
+using Hitasp.HitCommerce.Inventory;
+using Hitasp.HitCommerce.Orders;
 
 namespace Hitasp.HitCommerce
 {
@@ -30,6 +32,8 @@ namespace Hitasp.HitCommerce
     [DependsOn(typeof(CmsHttpApiModule))]
     [DependsOn(typeof(ContactsHttpApiModule))]
     [DependsOn(typeof(CoreHttpApiModule))]
+    [DependsOn(typeof(InventoryHttpApiModule))]
+    [DependsOn(typeof(OrdersHttpApiModule))]
     public class HitCommerceHttpApiModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
