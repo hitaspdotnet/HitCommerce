@@ -155,6 +155,7 @@ namespace Hitasp.HitCommerce.Web
                     options.Scope.Add("email");
                     options.Scope.Add("phone");
                     options.Scope.Add("HitCommerce");
+                    options.Scope.Add("HitCommercePublic");
                 });
         }
 
