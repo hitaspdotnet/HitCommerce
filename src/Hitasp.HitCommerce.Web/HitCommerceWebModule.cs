@@ -55,6 +55,7 @@ using Hitasp.HitCommerce.Search.Web;
 using Hitasp.HitCommerce.Shipments.Web;
 using Hitasp.HitCommerce.Shipping.Web;
 using Hitasp.HitCommerce.ShoppingCart.Web;
+using Hitasp.HitCommerce.Storage.Web;
 
 namespace Hitasp.HitCommerce.Web
 {
@@ -88,6 +89,7 @@ namespace Hitasp.HitCommerce.Web
     [DependsOn(typeof(ShipmentsWebModule))]
     [DependsOn(typeof(ShippingWebModule))]
     [DependsOn(typeof(ShoppingCartWebModule))]
+    [DependsOn(typeof(StorageWebModule))]
     public class HitCommerceWebModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)

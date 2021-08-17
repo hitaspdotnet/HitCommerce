@@ -28,6 +28,7 @@ using Hitasp.HitCommerce.Search;
 using Hitasp.HitCommerce.Shipments;
 using Hitasp.HitCommerce.Shipping;
 using Hitasp.HitCommerce.ShoppingCart;
+using Hitasp.HitCommerce.Storage;
 
 namespace Hitasp.HitCommerce
 {
@@ -59,6 +60,7 @@ namespace Hitasp.HitCommerce
     [DependsOn(typeof(ShipmentsDomainModule))]
     [DependsOn(typeof(ShippingDomainModule))]
     [DependsOn(typeof(ShoppingCartDomainModule))]
+    [DependsOn(typeof(StorageDomainModule))]
     public class HitCommerceDomainModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)

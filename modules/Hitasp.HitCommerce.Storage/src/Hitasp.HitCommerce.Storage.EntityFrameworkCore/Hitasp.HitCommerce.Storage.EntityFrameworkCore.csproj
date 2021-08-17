@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RootNamespace>Hitasp.HitCommerce.Storage</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="4.4.0" />
+    <ProjectReference Include="..\Hitasp.HitCommerce.Storage.Domain\Hitasp.HitCommerce.Storage.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

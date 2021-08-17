@@ -27,6 +27,7 @@ using Hitasp.HitCommerce.Search.EntityFrameworkCore;
 using Hitasp.HitCommerce.Shipments.EntityFrameworkCore;
 using Hitasp.HitCommerce.Shipping.EntityFrameworkCore;
 using Hitasp.HitCommerce.ShoppingCart.EntityFrameworkCore;
+using Hitasp.HitCommerce.Storage.EntityFrameworkCore;
 
 namespace Hitasp.HitCommerce.EntityFrameworkCore
 {
@@ -111,6 +112,7 @@ namespace Hitasp.HitCommerce.EntityFrameworkCore
             builder.ConfigureShipments();
             builder.ConfigureShipping();
             builder.ConfigureShoppingCart();
+            builder.ConfigureStorage();
         }
     }
 }
