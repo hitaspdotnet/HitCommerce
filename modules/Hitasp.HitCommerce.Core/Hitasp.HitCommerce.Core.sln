@@ -15,8 +15,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{649A3FFA-182
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{CCD2960C-23CC-4AB4-B84D-60C7AAA52F4D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "host", "host", "{E400416D-2895-4512-9D17-90681EEC7E0A}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hitasp.HitCommerce.Core.EntityFrameworkCore", "src\Hitasp.HitCommerce.Core.EntityFrameworkCore\Hitasp.HitCommerce.Core.EntityFrameworkCore.csproj", "{0CE86223-D31D-4315-A1F5-87BA3EE1B844}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hitasp.HitCommerce.Core.HttpApi", "src\Hitasp.HitCommerce.Core.HttpApi\Hitasp.HitCommerce.Core.HttpApi.csproj", "{077AA5F8-8B61-420C-A6B5-0150A66FDB34}"
