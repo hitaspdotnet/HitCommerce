@@ -25,6 +25,7 @@ using Hitasp.HitCommerce.ProductComparison.EntityFrameworkCore;
 using Hitasp.HitCommerce.ProductRecentlyViewed.EntityFrameworkCore;
 using Hitasp.HitCommerce.Search.EntityFrameworkCore;
 using Hitasp.HitCommerce.Shipments.EntityFrameworkCore;
+using Hitasp.HitCommerce.Shipping.EntityFrameworkCore;
 
 namespace Hitasp.HitCommerce.EntityFrameworkCore
 {
@@ -107,6 +108,7 @@ namespace Hitasp.HitCommerce.EntityFrameworkCore
             builder.ConfigureProductRecentlyViewed();
             builder.ConfigureSearch();
             builder.ConfigureShipments();
+            builder.ConfigureShipping();
         }
     }
 }
