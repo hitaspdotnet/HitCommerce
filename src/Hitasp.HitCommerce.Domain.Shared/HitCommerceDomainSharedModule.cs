@@ -26,6 +26,7 @@ using Hitasp.HitCommerce.ProductRecentlyViewed;
 using Hitasp.HitCommerce.Search;
 using Hitasp.HitCommerce.Shipments;
 using Hitasp.HitCommerce.Shipping;
+using Hitasp.HitCommerce.ShoppingCart;
 
 namespace Hitasp.HitCommerce
 {
@@ -53,6 +54,7 @@ namespace Hitasp.HitCommerce
     [DependsOn(typeof(SearchDomainSharedModule))]
     [DependsOn(typeof(ShipmentsDomainSharedModule))]
     [DependsOn(typeof(ShippingDomainSharedModule))]
+    [DependsOn(typeof(ShoppingCartDomainSharedModule))]
     public class HitCommerceDomainSharedModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)

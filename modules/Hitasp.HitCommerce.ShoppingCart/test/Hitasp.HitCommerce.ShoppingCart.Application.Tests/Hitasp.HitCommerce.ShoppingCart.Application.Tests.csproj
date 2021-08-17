@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Hitasp.HitCommerce.ShoppingCart</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Hitasp.HitCommerce.ShoppingCart.Application\Hitasp.HitCommerce.ShoppingCart.Application.csproj" />
+    <ProjectReference Include="..\Hitasp.HitCommerce.ShoppingCart.Domain.Tests\Hitasp.HitCommerce.ShoppingCart.Domain.Tests.csproj" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.1" />
+  </ItemGroup>
+
+</Project>

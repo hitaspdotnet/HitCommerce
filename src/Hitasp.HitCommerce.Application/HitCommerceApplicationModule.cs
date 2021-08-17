@@ -20,6 +20,7 @@ using Hitasp.HitCommerce.ProductRecentlyViewed;
 using Hitasp.HitCommerce.Search;
 using Hitasp.HitCommerce.Shipments;
 using Hitasp.HitCommerce.Shipping;
+using Hitasp.HitCommerce.ShoppingCart;
 
 namespace Hitasp.HitCommerce
 {
@@ -47,6 +48,7 @@ namespace Hitasp.HitCommerce
     [DependsOn(typeof(SearchApplicationModule))]
     [DependsOn(typeof(ShipmentsApplicationModule))]
     [DependsOn(typeof(ShippingApplicationModule))]
+    [DependsOn(typeof(ShoppingCartApplicationModule))]
     public class HitCommerceApplicationModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)

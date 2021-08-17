@@ -24,6 +24,7 @@ using Hitasp.HitCommerce.ProductRecentlyViewed.EntityFrameworkCore;
 using Hitasp.HitCommerce.Search.EntityFrameworkCore;
 using Hitasp.HitCommerce.Shipments.EntityFrameworkCore;
 using Hitasp.HitCommerce.Shipping.EntityFrameworkCore;
+using Hitasp.HitCommerce.ShoppingCart.EntityFrameworkCore;
 
 namespace Hitasp.HitCommerce.EntityFrameworkCore
 {
@@ -53,6 +54,7 @@ namespace Hitasp.HitCommerce.EntityFrameworkCore
     [DependsOn(typeof(SearchEntityFrameworkCoreModule))]
     [DependsOn(typeof(ShipmentsEntityFrameworkCoreModule))]
     [DependsOn(typeof(ShippingEntityFrameworkCoreModule))]
+    [DependsOn(typeof(ShoppingCartEntityFrameworkCoreModule))]
     public class HitCommerceEntityFrameworkCoreModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)
