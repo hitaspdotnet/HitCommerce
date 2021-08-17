@@ -23,6 +23,7 @@ using Hitasp.HitCommerce.Payments.EntityFrameworkCore;
 using Hitasp.HitCommerce.Pricing.EntityFrameworkCore;
 using Hitasp.HitCommerce.ProductComparison.EntityFrameworkCore;
 using Hitasp.HitCommerce.ProductRecentlyViewed.EntityFrameworkCore;
+using Hitasp.HitCommerce.Search.EntityFrameworkCore;
 
 namespace Hitasp.HitCommerce.EntityFrameworkCore
 {
@@ -103,6 +104,7 @@ namespace Hitasp.HitCommerce.EntityFrameworkCore
             builder.ConfigurePricing();
             builder.ConfigureProductComparison();
             builder.ConfigureProductRecentlyViewed();
+            builder.ConfigureSearch();
         }
     }
 }
