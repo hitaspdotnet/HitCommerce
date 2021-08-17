@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Hitasp.HitCommerce.Cms</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.*" />
+    <ProjectReference Include="..\..\src\Hitasp.HitCommerce.Cms.EntityFrameworkCore\Hitasp.HitCommerce.Cms.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Hitasp.HitCommerce.Cms.TestBase\Hitasp.HitCommerce.Cms.TestBase.csproj" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="4.4.0" />
+  </ItemGroup>
+
+</Project>

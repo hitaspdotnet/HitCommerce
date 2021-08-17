@@ -14,6 +14,7 @@ using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
 using Hitasp.HitCommerce.ActivityLog;
 using Hitasp.HitCommerce.Catalog;
+using Hitasp.HitCommerce.Cms;
 
 namespace Hitasp.HitCommerce
 {
@@ -29,6 +30,7 @@ namespace Hitasp.HitCommerce
         )]
     [DependsOn(typeof(ActivityLogDomainSharedModule))]
     [DependsOn(typeof(CatalogDomainSharedModule))]
+    [DependsOn(typeof(CmsDomainSharedModule))]
     public class HitCommerceDomainSharedModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)

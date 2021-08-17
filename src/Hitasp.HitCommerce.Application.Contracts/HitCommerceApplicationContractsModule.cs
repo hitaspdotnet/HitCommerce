@@ -8,6 +8,7 @@ using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 using Hitasp.HitCommerce.ActivityLog;
 using Hitasp.HitCommerce.Catalog;
+using Hitasp.HitCommerce.Cms;
 
 namespace Hitasp.HitCommerce
 {
@@ -23,6 +24,7 @@ namespace Hitasp.HitCommerce
     )]
     [DependsOn(typeof(ActivityLogApplicationContractsModule))]
     [DependsOn(typeof(CatalogApplicationContractsModule))]
+    [DependsOn(typeof(CmsApplicationContractsModule))]
     public class HitCommerceApplicationContractsModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)

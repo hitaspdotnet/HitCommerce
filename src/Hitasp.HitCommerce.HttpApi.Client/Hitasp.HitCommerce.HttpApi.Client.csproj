@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Hitasp.HitCommerce.Application.Contracts\Hitasp.HitCommerce.Application.Contracts.csproj" />
-  <ProjectReference Include="..\..\modules\Hitasp.HitCommerce.ActivityLog\src\Hitasp.HitCommerce.ActivityLog.HttpApi.Client\Hitasp.HitCommerce.ActivityLog.HttpApi.Client.csproj" /><ProjectReference Include="..\..\modules\Hitasp.HitCommerce.Catalog\src\Hitasp.HitCommerce.Catalog.HttpApi.Client\Hitasp.HitCommerce.Catalog.HttpApi.Client.csproj" /></ItemGroup>
+  <ProjectReference Include="..\..\modules\Hitasp.HitCommerce.ActivityLog\src\Hitasp.HitCommerce.ActivityLog.HttpApi.Client\Hitasp.HitCommerce.ActivityLog.HttpApi.Client.csproj" /><ProjectReference Include="..\..\modules\Hitasp.HitCommerce.Catalog\src\Hitasp.HitCommerce.Catalog.HttpApi.Client\Hitasp.HitCommerce.Catalog.HttpApi.Client.csproj" /><ProjectReference Include="..\..\modules\Hitasp.HitCommerce.Cms\src\Hitasp.HitCommerce.Cms.HttpApi.Client\Hitasp.HitCommerce.Cms.HttpApi.Client.csproj" /></ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Account.HttpApi.Client" Version="4.4.0" />

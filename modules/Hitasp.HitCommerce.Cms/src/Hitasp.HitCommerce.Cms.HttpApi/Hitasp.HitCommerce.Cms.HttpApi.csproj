@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Hitasp.HitCommerce.Cms</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="4.4.0" />
+    <ProjectReference Include="..\Hitasp.HitCommerce.Cms.Application.Contracts\Hitasp.HitCommerce.Cms.Application.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

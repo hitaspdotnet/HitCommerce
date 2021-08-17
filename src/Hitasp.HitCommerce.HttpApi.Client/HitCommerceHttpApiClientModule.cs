@@ -8,6 +8,7 @@ using Volo.Abp.TenantManagement;
 using Volo.Abp.SettingManagement;
 using Hitasp.HitCommerce.ActivityLog;
 using Hitasp.HitCommerce.Catalog;
+using Hitasp.HitCommerce.Cms;
 
 namespace Hitasp.HitCommerce
 {
@@ -22,6 +23,7 @@ namespace Hitasp.HitCommerce
     )]
     [DependsOn(typeof(ActivityLogHttpApiClientModule))]
     [DependsOn(typeof(CatalogHttpApiClientModule))]
+    [DependsOn(typeof(CmsHttpApiClientModule))]
     public class HitCommerceHttpApiClientModule : AbpModule
     {
         public const string RemoteServiceName = "Default";

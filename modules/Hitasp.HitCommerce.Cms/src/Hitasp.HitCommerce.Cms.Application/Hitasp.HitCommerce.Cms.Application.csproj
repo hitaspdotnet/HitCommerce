@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Hitasp.HitCommerce.Cms</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="4.4.0" />
+    <PackageReference Include="Volo.Abp.Ddd.Application" Version="4.4.0" />
+    <ProjectReference Include="..\Hitasp.HitCommerce.Cms.Application.Contracts\Hitasp.HitCommerce.Cms.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Hitasp.HitCommerce.Cms.Domain\Hitasp.HitCommerce.Cms.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
