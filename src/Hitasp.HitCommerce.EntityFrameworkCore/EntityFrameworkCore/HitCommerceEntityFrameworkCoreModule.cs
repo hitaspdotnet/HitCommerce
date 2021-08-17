@@ -17,6 +17,7 @@ using Hitasp.HitCommerce.Contacts.EntityFrameworkCore;
 using Hitasp.HitCommerce.Core.EntityFrameworkCore;
 using Hitasp.HitCommerce.Inventory.EntityFrameworkCore;
 using Hitasp.HitCommerce.Orders.EntityFrameworkCore;
+using Hitasp.HitCommerce.Payments.EntityFrameworkCore;
 
 namespace Hitasp.HitCommerce.EntityFrameworkCore
 {
@@ -39,6 +40,7 @@ namespace Hitasp.HitCommerce.EntityFrameworkCore
     [DependsOn(typeof(CoreEntityFrameworkCoreModule))]
     [DependsOn(typeof(InventoryEntityFrameworkCoreModule))]
     [DependsOn(typeof(OrdersEntityFrameworkCoreModule))]
+    [DependsOn(typeof(PaymentsEntityFrameworkCoreModule))]
     public class HitCommerceEntityFrameworkCoreModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)
