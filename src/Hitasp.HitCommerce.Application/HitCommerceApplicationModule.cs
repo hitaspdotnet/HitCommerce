@@ -18,6 +18,7 @@ using Hitasp.HitCommerce.Pricing;
 using Hitasp.HitCommerce.ProductComparison;
 using Hitasp.HitCommerce.ProductRecentlyViewed;
 using Hitasp.HitCommerce.Search;
+using Hitasp.HitCommerce.Shipments;
 
 namespace Hitasp.HitCommerce
 {
@@ -43,6 +44,7 @@ namespace Hitasp.HitCommerce
     [DependsOn(typeof(ProductComparisonApplicationModule))]
     [DependsOn(typeof(ProductRecentlyViewedApplicationModule))]
     [DependsOn(typeof(SearchApplicationModule))]
+    [DependsOn(typeof(ShipmentsApplicationModule))]
     public class HitCommerceApplicationModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
