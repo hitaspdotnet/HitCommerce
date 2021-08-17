@@ -16,6 +16,7 @@ using Hitasp.HitCommerce.ActivityLog.EntityFrameworkCore;
 using Hitasp.HitCommerce.Catalog.EntityFrameworkCore;
 using Hitasp.HitCommerce.Cms.EntityFrameworkCore;
 using Hitasp.HitCommerce.Contacts.EntityFrameworkCore;
+using Hitasp.HitCommerce.Core.EntityFrameworkCore;
 
 namespace Hitasp.HitCommerce.EntityFrameworkCore
 {
@@ -89,6 +90,7 @@ namespace Hitasp.HitCommerce.EntityFrameworkCore
             builder.ConfigureCatalog();
             builder.ConfigureCms();
             builder.ConfigureContacts();
+            builder.ConfigureCore();
         }
     }
 }

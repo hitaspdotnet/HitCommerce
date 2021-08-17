@@ -12,6 +12,7 @@ using Hitasp.HitCommerce.ActivityLog;
 using Hitasp.HitCommerce.Catalog;
 using Hitasp.HitCommerce.Cms;
 using Hitasp.HitCommerce.Contacts;
+using Hitasp.HitCommerce.Core;
 
 namespace Hitasp.HitCommerce
 {
@@ -28,6 +29,7 @@ namespace Hitasp.HitCommerce
     [DependsOn(typeof(CatalogHttpApiModule))]
     [DependsOn(typeof(CmsHttpApiModule))]
     [DependsOn(typeof(ContactsHttpApiModule))]
+    [DependsOn(typeof(CoreHttpApiModule))]
     public class HitCommerceHttpApiModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
