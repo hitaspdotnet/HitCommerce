@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Hitasp.HitCommerce.ProductRecentlyViewed</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Hitasp.HitCommerce.ProductRecentlyViewed.Application\Hitasp.HitCommerce.ProductRecentlyViewed.Application.csproj" />
+    <ProjectReference Include="..\Hitasp.HitCommerce.ProductRecentlyViewed.Domain.Tests\Hitasp.HitCommerce.ProductRecentlyViewed.Domain.Tests.csproj" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.1" />
+  </ItemGroup>
+
+</Project>
