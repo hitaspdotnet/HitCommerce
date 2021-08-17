@@ -23,6 +23,7 @@ using Hitasp.HitCommerce.Shipping;
 using Hitasp.HitCommerce.ShoppingCart;
 using Hitasp.HitCommerce.Storage;
 using Hitasp.HitCommerce.Tax;
+using Hitasp.HitCommerce.Vendors;
 
 namespace Hitasp.HitCommerce
 {
@@ -52,6 +53,7 @@ namespace Hitasp.HitCommerce
     [DependsOn(typeof(ShoppingCartHttpApiClientModule))]
     [DependsOn(typeof(StorageHttpApiClientModule))]
     [DependsOn(typeof(TaxHttpApiClientModule))]
+    [DependsOn(typeof(VendorsHttpApiClientModule))]
     public class HitCommerceHttpApiClientModule : AbpModule
     {
         public const string RemoteServiceName = "Default";

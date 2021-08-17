@@ -29,6 +29,7 @@ using Hitasp.HitCommerce.Shipping;
 using Hitasp.HitCommerce.ShoppingCart;
 using Hitasp.HitCommerce.Storage;
 using Hitasp.HitCommerce.Tax;
+using Hitasp.HitCommerce.Vendors;
 
 namespace Hitasp.HitCommerce
 {
@@ -59,6 +60,7 @@ namespace Hitasp.HitCommerce
     [DependsOn(typeof(ShoppingCartDomainSharedModule))]
     [DependsOn(typeof(StorageDomainSharedModule))]
     [DependsOn(typeof(TaxDomainSharedModule))]
+    [DependsOn(typeof(VendorsDomainSharedModule))]
     public class HitCommerceDomainSharedModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)

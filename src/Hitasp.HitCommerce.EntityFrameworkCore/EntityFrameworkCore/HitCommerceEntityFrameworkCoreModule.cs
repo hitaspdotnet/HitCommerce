@@ -27,6 +27,7 @@ using Hitasp.HitCommerce.Shipping.EntityFrameworkCore;
 using Hitasp.HitCommerce.ShoppingCart.EntityFrameworkCore;
 using Hitasp.HitCommerce.Storage.EntityFrameworkCore;
 using Hitasp.HitCommerce.Tax.EntityFrameworkCore;
+using Hitasp.HitCommerce.Vendors.EntityFrameworkCore;
 
 namespace Hitasp.HitCommerce.EntityFrameworkCore
 {
@@ -59,6 +60,7 @@ namespace Hitasp.HitCommerce.EntityFrameworkCore
     [DependsOn(typeof(ShoppingCartEntityFrameworkCoreModule))]
     [DependsOn(typeof(StorageEntityFrameworkCoreModule))]
     [DependsOn(typeof(TaxEntityFrameworkCoreModule))]
+    [DependsOn(typeof(VendorsEntityFrameworkCoreModule))]
     public class HitCommerceEntityFrameworkCoreModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)
