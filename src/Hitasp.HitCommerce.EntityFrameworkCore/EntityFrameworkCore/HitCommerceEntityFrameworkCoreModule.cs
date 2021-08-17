@@ -42,7 +42,7 @@ namespace Hitasp.HitCommerce.EntityFrameworkCore
         typeof(AbpAuditLoggingEntityFrameworkCoreModule),
         typeof(AbpTenantManagementEntityFrameworkCoreModule),
         typeof(AbpFeatureManagementEntityFrameworkCoreModule)
-        )]
+    )]
     [DependsOn(typeof(ActivityLogEntityFrameworkCoreModule))]
     [DependsOn(typeof(CatalogEntityFrameworkCoreModule))]
     [DependsOn(typeof(CmsEntityFrameworkCoreModule))]

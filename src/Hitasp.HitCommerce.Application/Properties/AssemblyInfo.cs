@@ -1,2 +1,3 @@
 ﻿using System.Runtime.CompilerServices;
-[assembly:InternalsVisibleToAttribute("Hitasp.HitCommerce.Application.Tests")]
+
+[assembly: InternalsVisibleToAttribute("Hitasp.HitCommerce.Application.Tests")]

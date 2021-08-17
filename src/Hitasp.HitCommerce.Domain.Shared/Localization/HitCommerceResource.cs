@@ -5,6 +5,5 @@ namespace Hitasp.HitCommerce.Localization
     [LocalizationResourceName("HitCommerce")]
     public class HitCommerceResource
     {
-
     }
 }

@@ -4,6 +4,5 @@ namespace Hitasp.HitCommerce.Web.Controllers
 {
     public class AccountController : ChallengeAccountController
     {
-
     }
 }

@@ -9,7 +9,7 @@ namespace Hitasp.HitCommerce.DbMigrator
         typeof(AbpAutofacModule),
         typeof(HitCommerceEntityFrameworkCoreModule),
         typeof(HitCommerceApplicationContractsModule)
-        )]
+    )]
     public class HitCommerceDbMigratorModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)

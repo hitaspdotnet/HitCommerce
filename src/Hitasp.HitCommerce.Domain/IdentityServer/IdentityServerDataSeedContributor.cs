@@ -152,15 +152,15 @@ namespace Hitasp.HitCommerce.IdentityServer
                 await CreateClientAsync(
                     name: webClientId,
                     scopes: commonScopes,
-                    grantTypes: new[] { "hybrid" },
+                    grantTypes: new[] {"hybrid"},
                     secret: (configurationSection["HitCommerce_Web:ClientSecret"] ?? "1q2w3e*").Sha256(),
                     redirectUri: $"{webClientRootUrl}signin-oidc",
                     postLogoutRedirectUri: $"{webClientRootUrl}signout-callback-oidc",
                     frontChannelLogoutUri: $"{webClientRootUrl}Account/FrontChannelLogout",
-                    corsOrigins: new[] { webClientRootUrl.RemovePostFix("/") }
+                    corsOrigins: new[] {webClientRootUrl.RemovePostFix("/")}
                 );
             }
-            
+
 
             //Console Test / Angular Client
             var consoleAndAngularClientId = configurationSection["HitCommerce_App:ClientId"];
@@ -171,17 +171,16 @@ namespace Hitasp.HitCommerce.IdentityServer
                 await CreateClientAsync(
                     name: consoleAndAngularClientId,
                     scopes: commonScopes,
-                    grantTypes: new[] { "password", "client_credentials", "authorization_code" },
+                    grantTypes: new[] {"password", "client_credentials", "authorization_code"},
                     secret: (configurationSection["HitCommerce_App:ClientSecret"] ?? "1q2w3e*").Sha256(),
                     requireClientSecret: false,
                     redirectUri: webClientRootUrl,
                     postLogoutRedirectUri: webClientRootUrl,
-                    corsOrigins: new[] { webClientRootUrl.RemovePostFix("/") }
+                    corsOrigins: new[] {webClientRootUrl.RemovePostFix("/")}
                 );
             }
-            
-            
-            
+
+
             // Swagger Client
             var swaggerClientId = configurationSection["HitCommerce_Swagger:ClientId"];
             if (!swaggerClientId.IsNullOrWhiteSpace())
@@ -191,11 +190,11 @@ namespace Hitasp.HitCommerce.IdentityServer
                 await CreateClientAsync(
                     name: swaggerClientId,
                     scopes: commonScopes,
-                    grantTypes: new[] { "authorization_code" },
+                    grantTypes: new[] {"authorization_code"},
                     secret: configurationSection["HitCommerce_Swagger:ClientSecret"]?.Sha256(),
                     requireClientSecret: false,
                     redirectUri: $"{swaggerRootUrl}/swagger/oauth2-redirect.html",
-                    corsOrigins: new[] { swaggerRootUrl.RemovePostFix("/") }
+                    corsOrigins: new[] {swaggerRootUrl.RemovePostFix("/")}
                 );
             }
         }

@@ -53,7 +53,7 @@ namespace Hitasp.HitCommerce.PublicWeb
         typeof(AbpTenantManagementWebModule),
         typeof(AbpAspNetCoreSerilogModule),
         typeof(AbpSwashbuckleModule)
-        )]
+    )]
     public class HitCommercePublicWebModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)
@@ -92,20 +92,14 @@ namespace Hitasp.HitCommerce.PublicWeb
             {
                 options.StyleBundles.Configure(
                     BasicThemeBundles.Styles.Global,
-                    bundle =>
-                    {
-                        bundle.AddFiles("/global-styles.css");
-                    }
+                    bundle => { bundle.AddFiles("/global-styles.css"); }
                 );
             });
         }
 
         private void ConfigureCache()
         {
-            Configure<AbpDistributedCacheOptions>(options =>
-            {
-                options.KeyPrefix = "HitCommerce:";
-            });
+            Configure<AbpDistributedCacheOptions>(options => { options.KeyPrefix = "HitCommerce:"; });
         }
 
         private void ConfigureUrls(IConfiguration configuration)
@@ -118,10 +112,7 @@ namespace Hitasp.HitCommerce.PublicWeb
 
         private void ConfigureMultiTenancy()
         {
-            Configure<AbpMultiTenancyOptions>(options =>
-            {
-                options.IsEnabled = MultiTenancyConsts.IsEnabled;
-            });
+            Configure<AbpMultiTenancyOptions>(options => { options.IsEnabled = MultiTenancyConsts.IsEnabled; });
         }
 
         private void ConfigureAuthentication(ServiceConfigurationContext context, IConfiguration configuration)
@@ -131,10 +122,7 @@ namespace Hitasp.HitCommerce.PublicWeb
                     options.DefaultScheme = "Cookies";
                     options.DefaultChallengeScheme = "oidc";
                 })
-                .AddCookie("Cookies", options =>
-                {
-                    options.ExpireTimeSpan = TimeSpan.FromDays(365);
-                })
+                .AddCookie("Cookies", options => { options.ExpireTimeSpan = TimeSpan.FromDays(365); })
                 .AddAbpOpenIdConnect("oidc", options =>
                 {
                     options.Authority = configuration["AuthServer:Authority"];
@@ -157,10 +145,7 @@ namespace Hitasp.HitCommerce.PublicWeb
 
         private void ConfigureAutoMapper()
         {
-            Configure<AbpAutoMapperOptions>(options =>
-            {
-                options.AddMaps<HitCommercePublicWebModule>();
-            });
+            Configure<AbpAutoMapperOptions>(options => { options.AddMaps<HitCommercePublicWebModule>(); });
         }
 
         private void ConfigureVirtualFileSystem(IWebHostEnvironment hostingEnvironment)
@@ -169,9 +154,14 @@ namespace Hitasp.HitCommerce.PublicWeb
             {
                 Configure<AbpVirtualFileSystemOptions>(options =>
                 {
-                    options.FileSets.ReplaceEmbeddedByPhysical<HitCommerceDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}Hitasp.HitCommerce.Domain"));
-                    options.FileSets.ReplaceEmbeddedByPhysical<HitCommerceApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}Hitasp.HitCommerce.Application.Contracts"));
-                    options.FileSets.ReplaceEmbeddedByPhysical<HitCommercePublicWebModule>(hostingEnvironment.ContentRootPath);
+                    options.FileSets.ReplaceEmbeddedByPhysical<HitCommerceDomainSharedModule>(
+                        Path.Combine(hostingEnvironment.ContentRootPath,
+                            $"..{Path.DirectorySeparatorChar}Hitasp.HitCommerce.Domain"));
+                    options.FileSets.ReplaceEmbeddedByPhysical<HitCommerceApplicationContractsModule>(
+                        Path.Combine(hostingEnvironment.ContentRootPath,
+                            $"..{Path.DirectorySeparatorChar}Hitasp.HitCommerce.Application.Contracts"));
+                    options.FileSets.ReplaceEmbeddedByPhysical<HitCommercePublicWebModule>(hostingEnvironment
+                        .ContentRootPath);
                 });
             }
         }
@@ -183,10 +173,7 @@ namespace Hitasp.HitCommerce.PublicWeb
                 options.MenuContributors.Add(new HitCommercePublicMenuContributor(configuration));
             });
 
-            Configure<AbpToolbarOptions>(options =>
-            {
-                options.Contributors.Add(new HitCommerceToolbarContributor());
-            });
+            Configure<AbpToolbarOptions>(options => { options.Contributors.Add(new HitCommerceToolbarContributor()); });
         }
 
         private void ConfigureSwaggerServices(IServiceCollection services)
@@ -194,7 +181,7 @@ namespace Hitasp.HitCommerce.PublicWeb
             services.AddAbpSwaggerGen(
                 options =>
                 {
-                    options.SwaggerDoc("v1", new OpenApiInfo { Title = "HitCommerce API", Version = "v1" });
+                    options.SwaggerDoc("v1", new OpenApiInfo {Title = "HitCommerce API", Version = "v1"});
                     options.DocInclusionPredicate((docName, description) => true);
                     options.CustomSchemaIds(type => type.FullName);
                 }
@@ -244,10 +231,7 @@ namespace Hitasp.HitCommerce.PublicWeb
 
             app.UseAuthorization();
             app.UseSwagger();
-            app.UseAbpSwaggerUI(options =>
-            {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "HitCommerce API");
-            });
+            app.UseAbpSwaggerUI(options => { options.SwaggerEndpoint("/swagger/v1/swagger.json", "HitCommerce API"); });
             app.UseAbpSerilogEnrichers();
             app.UseConfiguredEndpoints();
         }

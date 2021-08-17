@@ -10,7 +10,7 @@ namespace Hitasp.HitCommerce.HttpApi.Client.ConsoleTestApp
     [DependsOn(
         typeof(HitCommerceHttpApiClientModule),
         typeof(AbpHttpClientIdentityModelModule)
-        )]
+    )]
     public class HitCommerceConsoleApiClientModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)

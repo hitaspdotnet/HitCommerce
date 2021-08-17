@@ -5,9 +5,8 @@ namespace Hitasp.HitCommerce
 {
     [DependsOn(
         typeof(HitCommerceEntityFrameworkCoreTestModule)
-        )]
+    )]
     public class HitCommerceDomainTestModule : AbpModule
     {
-
     }
 }

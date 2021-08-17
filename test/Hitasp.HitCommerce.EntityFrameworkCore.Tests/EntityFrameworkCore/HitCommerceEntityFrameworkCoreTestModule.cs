@@ -14,7 +14,7 @@ namespace Hitasp.HitCommerce.EntityFrameworkCore
         typeof(HitCommerceEntityFrameworkCoreModule),
         typeof(HitCommerceTestBaseModule),
         typeof(AbpEntityFrameworkCoreSqliteModule)
-        )]
+    )]
     public class HitCommerceEntityFrameworkCoreTestModule : AbpModule
     {
         private SqliteConnection _sqliteConnection;
@@ -30,10 +30,7 @@ namespace Hitasp.HitCommerce.EntityFrameworkCore
 
             services.Configure<AbpDbContextOptions>(options =>
             {
-                options.Configure(context =>
-                {
-                    context.DbContextOptions.UseSqlite(_sqliteConnection);
-                });
+                options.Configure(context => { context.DbContextOptions.UseSqlite(_sqliteConnection); });
             });
         }
 

@@ -42,7 +42,7 @@ namespace Hitasp.HitCommerce
         typeof(AbpAspNetCoreMvcUiBasicThemeModule),
         typeof(HitCommerceEntityFrameworkCoreModule),
         typeof(AbpAspNetCoreSerilogModule)
-        )]
+    )]
     public class HitCommerceIdentityServerModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
@@ -81,10 +81,7 @@ namespace Hitasp.HitCommerce
             {
                 options.StyleBundles.Configure(
                     BasicThemeBundles.Styles.Global,
-                    bundle =>
-                    {
-                        bundle.AddFiles("/global-styles.css");
-                    }
+                    bundle => { bundle.AddFiles("/global-styles.css"); }
                 );
             });
 
@@ -98,8 +95,12 @@ namespace Hitasp.HitCommerce
             {
                 Configure<AbpVirtualFileSystemOptions>(options =>
                 {
-                    options.FileSets.ReplaceEmbeddedByPhysical<HitCommerceDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}Hitasp.HitCommerce.Domain.Shared"));
-                    options.FileSets.ReplaceEmbeddedByPhysical<HitCommerceDomainModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}Hitasp.HitCommerce.Domain"));
+                    options.FileSets.ReplaceEmbeddedByPhysical<HitCommerceDomainSharedModule>(
+                        Path.Combine(hostingEnvironment.ContentRootPath,
+                            $"..{Path.DirectorySeparatorChar}Hitasp.HitCommerce.Domain.Shared"));
+                    options.FileSets.ReplaceEmbeddedByPhysical<HitCommerceDomainModule>(
+                        Path.Combine(hostingEnvironment.ContentRootPath,
+                            $"..{Path.DirectorySeparatorChar}Hitasp.HitCommerce.Domain"));
                 });
             }
 
@@ -112,15 +113,9 @@ namespace Hitasp.HitCommerce
                 options.Applications["Angular"].Urls[AccountUrlNames.PasswordReset] = "account/reset-password";
             });
 
-            Configure<AbpBackgroundJobOptions>(options =>
-            {
-                options.IsJobExecutionEnabled = false;
-            });
+            Configure<AbpBackgroundJobOptions>(options => { options.IsJobExecutionEnabled = false; });
 
-            Configure<AbpDistributedCacheOptions>(options =>
-            {
-                options.KeyPrefix = "HitCommerce:";
-            });
+            Configure<AbpDistributedCacheOptions>(options => { options.KeyPrefix = "HitCommerce:"; });
 
             if (!hostingEnvironment.IsDevelopment())
             {

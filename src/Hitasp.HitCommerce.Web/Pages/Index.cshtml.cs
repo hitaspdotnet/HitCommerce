@@ -7,7 +7,6 @@ namespace Hitasp.HitCommerce.Web.Pages
     {
         public void OnGet()
         {
-            
         }
 
         public async Task OnPostLoginAsync()

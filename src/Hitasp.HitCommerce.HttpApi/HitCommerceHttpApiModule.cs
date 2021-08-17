@@ -37,7 +37,7 @@ namespace Hitasp.HitCommerce
         typeof(AbpTenantManagementHttpApiModule),
         typeof(AbpFeatureManagementHttpApiModule),
         typeof(AbpSettingManagementHttpApiModule)
-        )]
+    )]
     [DependsOn(typeof(ActivityLogHttpApiModule))]
     [DependsOn(typeof(CatalogHttpApiModule))]
     [DependsOn(typeof(CmsHttpApiModule))]

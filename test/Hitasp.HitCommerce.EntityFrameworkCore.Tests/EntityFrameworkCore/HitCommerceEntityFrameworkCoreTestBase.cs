@@ -2,8 +2,8 @@
 
 namespace Hitasp.HitCommerce.EntityFrameworkCore
 {
-    public abstract class HitCommerceEntityFrameworkCoreTestBase : HitCommerceTestBase<HitCommerceEntityFrameworkCoreTestModule> 
+    public abstract class
+        HitCommerceEntityFrameworkCoreTestBase : HitCommerceTestBase<HitCommerceEntityFrameworkCoreTestModule>
     {
-
     }
 }

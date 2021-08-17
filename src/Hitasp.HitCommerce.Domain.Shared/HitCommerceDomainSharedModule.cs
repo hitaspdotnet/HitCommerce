@@ -42,7 +42,7 @@ namespace Hitasp.HitCommerce
         typeof(AbpPermissionManagementDomainSharedModule),
         typeof(AbpSettingManagementDomainSharedModule),
         typeof(AbpTenantManagementDomainSharedModule)
-        )]
+    )]
     [DependsOn(typeof(ActivityLogDomainSharedModule))]
     [DependsOn(typeof(CatalogDomainSharedModule))]
     [DependsOn(typeof(CmsDomainSharedModule))]

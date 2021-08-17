@@ -1,7 +1,6 @@
 ﻿namespace Hitasp.HitCommerce
 {
-    public abstract class HitCommerceApplicationTestBase : HitCommerceTestBase<HitCommerceApplicationTestModule> 
+    public abstract class HitCommerceApplicationTestBase : HitCommerceTestBase<HitCommerceApplicationTestModule>
     {
-
     }
 }

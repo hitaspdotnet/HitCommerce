@@ -36,7 +36,7 @@ namespace Hitasp.HitCommerce
         typeof(AbpTenantManagementApplicationModule),
         typeof(AbpFeatureManagementApplicationModule),
         typeof(AbpSettingManagementApplicationModule)
-        )]
+    )]
     [DependsOn(typeof(ActivityLogApplicationModule))]
     [DependsOn(typeof(CatalogApplicationModule))]
     [DependsOn(typeof(CmsApplicationModule))]
@@ -59,10 +59,7 @@ namespace Hitasp.HitCommerce
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
-            Configure<AbpAutoMapperOptions>(options =>
-            {
-                options.AddMaps<HitCommerceApplicationModule>();
-            });
+            Configure<AbpAutoMapperOptions>(options => { options.AddMaps<HitCommerceApplicationModule>(); });
         }
     }
 }

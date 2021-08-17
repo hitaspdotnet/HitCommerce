@@ -15,7 +15,7 @@ namespace Hitasp.HitCommerce
         typeof(AbpTestBaseModule),
         typeof(AbpAuthorizationModule),
         typeof(HitCommerceDomainModule)
-        )]
+    )]
     public class HitCommerceTestBaseModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)
@@ -33,10 +33,7 @@ namespace Hitasp.HitCommerce
 
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
-            Configure<AbpBackgroundJobOptions>(options =>
-            {
-                options.IsJobExecutionEnabled = false;
-            });
+            Configure<AbpBackgroundJobOptions>(options => { options.IsJobExecutionEnabled = false; });
 
             context.Services.AddAlwaysAllowAuthorization();
         }
