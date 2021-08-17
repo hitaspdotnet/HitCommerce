@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Hitasp.HitCommerce.Application.Contracts\Hitasp.HitCommerce.Application.Contracts.csproj" />
-  <ProjectReference Include="..\..\modules\Hitasp.HitCommerce.ActivityLog\src\Hitasp.HitCommerce.ActivityLog.HttpApi\Hitasp.HitCommerce.ActivityLog.HttpApi.csproj" /></ItemGroup>
+  <ProjectReference Include="..\..\modules\Hitasp.HitCommerce.ActivityLog\src\Hitasp.HitCommerce.ActivityLog.HttpApi\Hitasp.HitCommerce.ActivityLog.HttpApi.csproj" /><ProjectReference Include="..\..\modules\Hitasp.HitCommerce.Catalog\src\Hitasp.HitCommerce.Catalog.HttpApi\Hitasp.HitCommerce.Catalog.HttpApi.csproj" /></ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Account.HttpApi" Version="4.4.0" />

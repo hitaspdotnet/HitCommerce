@@ -9,6 +9,7 @@ using Volo.Abp.PermissionManagement.HttpApi;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 using Hitasp.HitCommerce.ActivityLog;
+using Hitasp.HitCommerce.Catalog;
 
 namespace Hitasp.HitCommerce
 {
@@ -22,6 +23,7 @@ namespace Hitasp.HitCommerce
         typeof(AbpSettingManagementHttpApiModule)
         )]
     [DependsOn(typeof(ActivityLogHttpApiModule))]
+    [DependsOn(typeof(CatalogHttpApiModule))]
     public class HitCommerceHttpApiModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
