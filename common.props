@@ -6,6 +6,7 @@
 	<AbpProjectType>app</AbpProjectType>
   </PropertyGroup>
 
+  
   <Target Name="NoWarnOnRazorViewImportedTypeConflicts" BeforeTargets="RazorCoreCompile">
     <PropertyGroup>
       <NoWarn>$(NoWarn);0436</NoWarn>
