@@ -9,5 +9,7 @@ namespace Hitasp.HitCommerce.Core.Web.Menus
         public const string StateOrProvinces = Prefix + ".StateOrProvinces";
 
         public const string Cities = Prefix + ".Cities";
+
+        public const string Districts = Prefix + ".Districts";
     }
 }

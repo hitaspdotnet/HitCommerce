@@ -1,0 +1,42 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Hitasp.HitCommerce.Core.Localization
+@using Hitasp.HitCommerce.Core.Web.Pages.Core.Districts
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using Hitasp.HitCommerce.Core.Districts;
+@using System.Globalization
+@inject IHtmlLocalizer<CoreResource> L
+@model EditModalModel
+@{
+    Layout = null;
+}
+
+<form data-ajaxForm="true" asp-page="/Core/Districts/EditModal" autocomplete="off">
+    <abp-modal>
+        <abp-modal-header title="@L["Update"].Value"></abp-modal-header>
+
+        <abp-modal-body>
+            <abp-input asp-for="Id" />
+            
+            <abp-input asp-for="District.Name"/>
+
+            <abp-input asp-for="District.Type"/>
+
+                        <div class="form-group">
+                <label for="District_CityId">@L["City"]</label>
+                <select id="District_CityId"
+                         name="District.CityId"
+                         class="custom-select form-control"
+                         data-value="@Model.District.CityId" required>
+                    @if (Model.City != null)
+                    {
+                        <option value="@Model.District.CityId">@Model.City.Name</option>
+                    }
+                </select>
+            </div>
+
+        </abp-modal-body>
+
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
+    </abp-modal>
+</form>

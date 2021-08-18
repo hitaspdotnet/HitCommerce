@@ -24,6 +24,11 @@ namespace Hitasp.HitCommerce.Core.Permissions
             cityPermission.AddChild(CorePermissions.Cities.Create, L("Permission:Create"));
             cityPermission.AddChild(CorePermissions.Cities.Edit, L("Permission:Edit"));
             cityPermission.AddChild(CorePermissions.Cities.Delete, L("Permission:Delete"));
+
+            var districtPermission = myGroup.AddPermission(CorePermissions.Districts.Default, L("Permission:Districts"));
+            districtPermission.AddChild(CorePermissions.Districts.Create, L("Permission:Create"));
+            districtPermission.AddChild(CorePermissions.Districts.Edit, L("Permission:Edit"));
+            districtPermission.AddChild(CorePermissions.Districts.Delete, L("Permission:Delete"));
         }
 
         private static LocalizableString L(string name)
