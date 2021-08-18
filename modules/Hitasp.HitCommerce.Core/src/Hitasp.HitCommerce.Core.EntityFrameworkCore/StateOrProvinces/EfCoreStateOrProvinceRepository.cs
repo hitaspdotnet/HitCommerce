@@ -22,8 +22,7 @@ namespace Hitasp.HitCommerce.Core.StateOrProvinces
         public virtual async Task<StateOrProvince> FindByNameAsync(Guid countryId, string name,
             CancellationToken cancellationToken = default)
         {
-            var query = ApplyFilter((await GetQueryableAsync()), filterText: null, countryId: countryId, name: name);
-            return await query.FirstOrDefaultAsync(GetCancellationToken(cancellationToken));
+            return await base.FindAsync(x => x.CountryId == countryId && x.Name == name, cancellationToken: GetCancellationToken(cancellationToken));
         }
 
         public virtual async Task<StateOrProvince> FindByCodeAsync(Guid countryId, string code,
@@ -52,7 +51,7 @@ namespace Hitasp.HitCommerce.Core.StateOrProvinces
             CancellationToken cancellationToken = default)
         {
             var query = await GetQueryForNavigationPropertiesAsync();
-            query = ApplyFilter(query, filterText, name, code3, type, countryId);
+            query = ApplyFilter(query, filterText, countryId, name, code3, type);
             query = query.OrderBy(string.IsNullOrWhiteSpace(sorting)
                 ? StateOrProvinceConsts.GetDefaultSorting(true)
                 : sorting);
@@ -76,20 +75,20 @@ namespace Hitasp.HitCommerce.Core.StateOrProvinces
         protected virtual IQueryable<StateOrProvinceWithNavigationProperties> ApplyFilter(
             IQueryable<StateOrProvinceWithNavigationProperties> query,
             string filterText,
+            Guid? countryId = null,
             string name = null,
             string code3 = null,
-            string type = null,
-            Guid? countryId = null)
+            string type = null)
         {
             return query
+                .WhereIf(countryId != null && countryId != Guid.Empty,
+                    e => e.Country != null && e.Country.Id == countryId)
                 .WhereIf(!string.IsNullOrWhiteSpace(filterText),
                     e => e.StateOrProvince.Name.Contains(filterText) || e.StateOrProvince.Code3.Contains(filterText) ||
                          e.StateOrProvince.Type.Contains(filterText))
                 .WhereIf(!string.IsNullOrWhiteSpace(name), e => e.StateOrProvince.Name.Contains(name))
                 .WhereIf(!string.IsNullOrWhiteSpace(code3), e => e.StateOrProvince.Code3.Contains(code3))
-                .WhereIf(!string.IsNullOrWhiteSpace(type), e => e.StateOrProvince.Type.Contains(type))
-                .WhereIf(countryId != null && countryId != Guid.Empty,
-                    e => e.Country != null && e.Country.Id == countryId);
+                .WhereIf(!string.IsNullOrWhiteSpace(type), e => e.StateOrProvince.Type.Contains(type));
         }
 
         public async Task<List<StateOrProvince>> GetListAsync(
@@ -119,7 +118,7 @@ namespace Hitasp.HitCommerce.Core.StateOrProvinces
             CancellationToken cancellationToken = default)
         {
             var query = await GetQueryForNavigationPropertiesAsync();
-            query = ApplyFilter(query, filterText, name, code3, type, countryId);
+            query = ApplyFilter(query, filterText, countryId, name, code3, type);
             return await query.LongCountAsync(GetCancellationToken(cancellationToken));
         }
 
