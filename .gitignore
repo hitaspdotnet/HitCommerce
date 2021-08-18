@@ -255,4 +255,5 @@ paket-files/
 # Solution specific
 package-lock.json
 yarn.lock
+.suite/
 /**/wwwroot/libs/
