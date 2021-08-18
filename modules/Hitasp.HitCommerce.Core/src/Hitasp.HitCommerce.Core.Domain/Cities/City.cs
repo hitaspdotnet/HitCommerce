@@ -15,7 +15,7 @@ namespace Hitasp.HitCommerce.Core.Cities
 
         [CanBeNull]
         public virtual string Type { get; set; }
-        public Guid StateOrProvinceId { get; set; }
+        public Guid StateOrProvinceId { get; protected set; }
 
         protected City()
         {
