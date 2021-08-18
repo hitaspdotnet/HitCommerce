@@ -1,0 +1,42 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Hitasp.HitCommerce.Core.Localization
+@using Hitasp.HitCommerce.Core.Web.Pages.Core.Cities
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using Hitasp.HitCommerce.Core.Cities;
+@using System.Globalization
+@inject IHtmlLocalizer<CoreResource> L
+@model EditModalModel
+@{
+    Layout = null;
+}
+
+<form data-ajaxForm="true" asp-page="/Core/Cities/EditModal" autocomplete="off">
+    <abp-modal>
+        <abp-modal-header title="@L["Update"].Value"></abp-modal-header>
+
+        <abp-modal-body>
+            <abp-input asp-for="Id" />
+            
+            <abp-input asp-for="City.Name"/>
+
+            <abp-input asp-for="City.Type"/>
+
+                        <div class="form-group">
+                <label for="City_StateOrProvinceId">@L["StateOrProvince"]</label>
+                <select id="City_StateOrProvinceId"
+                         name="City.StateOrProvinceId"
+                         class="custom-select form-control"
+                         data-value="@Model.City.StateOrProvinceId" required>
+                    @if (Model.StateOrProvince != null)
+                    {
+                        <option value="@Model.City.StateOrProvinceId">@Model.StateOrProvince.Name</option>
+                    }
+                </select>
+            </div>
+
+        </abp-modal-body>
+
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
+    </abp-modal>
+</form>

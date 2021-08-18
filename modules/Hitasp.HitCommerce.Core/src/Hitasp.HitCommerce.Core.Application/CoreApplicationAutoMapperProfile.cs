@@ -1,3 +1,4 @@
+using Hitasp.HitCommerce.Core.Cities;
 using Hitasp.HitCommerce.Core.StateOrProvinces;
 using System;
 using Hitasp.HitCommerce.Core.Shared;
@@ -24,6 +25,12 @@ namespace Hitasp.HitCommerce.Core
             CreateMap<StateOrProvinceUpdateDto, StateOrProvince>().IgnoreFullAuditedObjectProperties().Ignore(x => x.Id);
             CreateMap<StateOrProvince, StateOrProvinceDto>();
             CreateMap<StateOrProvinceWithNavigationProperties, StateOrProvinceWithNavigationPropertiesDto>();
+
+            CreateMap<CityCreateDto, City>().IgnoreFullAuditedObjectProperties().Ignore(x => x.Id);
+            CreateMap<CityUpdateDto, City>().IgnoreFullAuditedObjectProperties().Ignore(x => x.Id);
+            CreateMap<City, CityDto>();
+            CreateMap<CityWithNavigationProperties, CityWithNavigationPropertiesDto>();
+            CreateMap<StateOrProvince, LookupDto<Guid>>().ForMember(dest => dest.DisplayName, opt => opt.MapFrom(src => src.Name));
         }
     }
 }

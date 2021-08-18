@@ -27,6 +27,11 @@
     "StateOrProvinces": "State Or Provinces",
     "NewStateOrProvince": "New State Or Province",
     "Type": "Type",
-    "Menu:StateOrProvinces": "State Or Provinces"
+    "Menu:StateOrProvinces": "State Or Provinces",
+    "StateOrProvince": "State or province",
+    "Permission:Cities": "Cities",
+    "Cities": "Cities",
+    "NewCity": "New City",
+    "Menu:Cities": "Cities"
   }
 }

@@ -1,3 +1,4 @@
+using Hitasp.HitCommerce.Core.Cities;
 using Hitasp.HitCommerce.Core.StateOrProvinces;
 using Hitasp.HitCommerce.Core.Countries;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ namespace Hitasp.HitCommerce.Core.EntityFrameworkCore
     [ConnectionStringName(CoreDbProperties.ConnectionStringName)]
     public interface ICoreDbContext : IEfCoreDbContext
     {
+        DbSet<City> Cities { get; set; }
         DbSet<StateOrProvince> StateOrProvinces { get; set; }
         DbSet<Country> Countries { get; set; }
         /* Add DbSet for each Aggregate Root here. Example:

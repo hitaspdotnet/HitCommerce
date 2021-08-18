@@ -1,3 +1,4 @@
+using Hitasp.HitCommerce.Core.Cities;
 using Hitasp.HitCommerce.Core.StateOrProvinces;
 using Hitasp.HitCommerce.Core.Countries;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +23,8 @@ namespace Hitasp.HitCommerce.Core.EntityFrameworkCore
                 options.AddRepository<Country, Countries.EfCoreCountryRepository>();
 
                 options.AddRepository<StateOrProvince, StateOrProvinces.EfCoreStateOrProvinceRepository>();
+
+                options.AddRepository<City, Cities.EfCoreCityRepository>();
 
             });
         }

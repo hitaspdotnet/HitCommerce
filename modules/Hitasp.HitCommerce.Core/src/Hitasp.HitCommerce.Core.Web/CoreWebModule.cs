@@ -55,6 +55,7 @@ namespace Hitasp.HitCommerce.Core.Web
                 //Configure authorization.
                 options.Conventions.AuthorizePage("/Countries/Index", CorePermissions.Countries.Default);
                 options.Conventions.AuthorizePage("/StateOrProvinces/Index", CorePermissions.StateOrProvinces.Default);
+                options.Conventions.AuthorizePage("/Cities/Index", CorePermissions.Cities.Default);
             });
         }
     }

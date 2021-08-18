@@ -1,3 +1,4 @@
+using Hitasp.HitCommerce.Core.Cities;
 using Hitasp.HitCommerce.Core.StateOrProvinces;
 using Volo.Abp.EntityFrameworkCore.Modeling;
 using Hitasp.HitCommerce.Core.Countries;
@@ -64,6 +65,18 @@ namespace Hitasp.HitCommerce.Core.EntityFrameworkCore
         b.Property(x => x.Code3).HasColumnName(nameof(StateOrProvince.Code3)).HasMaxLength(StateOrProvinceConsts.Code3MaxLength);
         b.Property(x => x.Type).HasColumnName(nameof(StateOrProvince.Type)).HasMaxLength(StateOrProvinceConsts.TypeMaxLength);
         b.HasOne<Country>().WithMany().IsRequired().HasForeignKey(x => x.CountryId);
+    });
+
+            }
+            if (builder.IsHostDatabase())
+            {
+                builder.Entity<City>(b =>
+    {
+        b.ToTable(CoreDbProperties.DbTablePrefix + "Cities", CoreDbProperties.DbSchema);
+        b.ConfigureByConvention();
+        b.Property(x => x.Name).HasColumnName(nameof(City.Name)).IsRequired().HasMaxLength(CityConsts.NameMaxLength);
+        b.Property(x => x.Type).HasColumnName(nameof(City.Type)).HasMaxLength(CityConsts.TypeMaxLength);
+        b.HasOne<StateOrProvince>().WithMany().IsRequired().HasForeignKey(x => x.StateOrProvinceId);
     });
 
             }

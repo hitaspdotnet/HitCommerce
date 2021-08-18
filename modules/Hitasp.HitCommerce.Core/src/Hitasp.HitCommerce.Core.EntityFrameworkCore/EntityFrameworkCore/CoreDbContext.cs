@@ -1,3 +1,4 @@
+using Hitasp.HitCommerce.Core.Cities;
 using Hitasp.HitCommerce.Core.StateOrProvinces;
 using Hitasp.HitCommerce.Core.Countries;
 using Volo.Abp.EntityFrameworkCore.Modeling;
@@ -10,6 +11,7 @@ namespace Hitasp.HitCommerce.Core.EntityFrameworkCore
     [ConnectionStringName(CoreDbProperties.ConnectionStringName)]
     public class CoreDbContext : AbpDbContext<CoreDbContext>, ICoreDbContext
     {
+        public DbSet<City> Cities { get; set; }
         public DbSet<StateOrProvince> StateOrProvinces { get; set; }
         public DbSet<Country> Countries { get; set; }
         /* Add DbSet for each Aggregate Root here. Example:
