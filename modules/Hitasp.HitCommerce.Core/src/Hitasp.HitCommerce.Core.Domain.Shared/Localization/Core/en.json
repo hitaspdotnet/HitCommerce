@@ -21,6 +21,12 @@
     "IsBillingEnabled": "Is Billing Enabled",
     "IsShippingEnabled": "Is Shipping Enabled",
     "Menu:Countries": "Countries",
-    "Menu:Core": "Core"
+    "Menu:Core": "Core",
+    "Country": "Country",
+    "Permission:StateOrProvinces": "State Or Provinces",
+    "StateOrProvinces": "State Or Provinces",
+    "NewStateOrProvince": "New State Or Province",
+    "Type": "Type",
+    "Menu:StateOrProvinces": "State Or Provinces"
   }
 }

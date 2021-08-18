@@ -1,3 +1,4 @@
+using Hitasp.HitCommerce.Core.StateOrProvinces;
 using Hitasp.HitCommerce.Core.Countries;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
@@ -19,6 +20,8 @@ namespace Hitasp.HitCommerce.Core.EntityFrameworkCore
                  * options.AddRepository<Question, EfCoreQuestionRepository>();
                  */
                 options.AddRepository<Country, Countries.EfCoreCountryRepository>();
+
+                options.AddRepository<StateOrProvince, StateOrProvinces.EfCoreStateOrProvinceRepository>();
 
             });
         }

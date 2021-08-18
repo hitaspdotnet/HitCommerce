@@ -18,6 +18,8 @@ namespace Hitasp.HitCommerce.Core.Web.Menus
 
             var moduleMenu = AddModuleMenuItem(context);
             await AddMenuItemCountries(context, moduleMenu);
+
+            await AddMenuItemStateOrProvinces(context, moduleMenu);
         }
 
         private Task ConfigureMainMenuAsync(MenuConfigurationContext context)
@@ -48,6 +50,19 @@ namespace Hitasp.HitCommerce.Core.Web.Menus
                     "/Core/Countries",
                     icon: "fa fa-file-alt",
                     requiredPermissionName: CorePermissions.Countries.Default
+                )
+            );
+        }
+
+        private static async Task AddMenuItemStateOrProvinces(MenuConfigurationContext context, ApplicationMenuItem parentMenu)
+        {
+            parentMenu.AddItem(
+                new ApplicationMenuItem(
+                    Menus.CoreMenus.StateOrProvinces,
+                    context.GetLocalizer<CoreResource>()["Menu:StateOrProvinces"],
+                    "/Core/StateOrProvinces",
+                    icon: "fa fa-file-alt",
+                    requiredPermissionName: CorePermissions.StateOrProvinces.Default
                 )
             );
         }

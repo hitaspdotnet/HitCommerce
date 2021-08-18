@@ -5,5 +5,7 @@ namespace Hitasp.HitCommerce.Core.Web.Menus
         public const string Prefix = "Core";
 
         public const string Countries = Prefix + ".Countries";
+
+        public const string StateOrProvinces = Prefix + ".StateOrProvinces";
     }
 }

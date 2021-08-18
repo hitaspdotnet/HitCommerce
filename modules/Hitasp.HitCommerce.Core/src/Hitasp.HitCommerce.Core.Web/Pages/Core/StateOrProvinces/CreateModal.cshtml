@@ -1,0 +1,39 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Hitasp.HitCommerce.Core.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using Hitasp.HitCommerce.Core.Web.Pages.Core.StateOrProvinces
+@using Hitasp.HitCommerce.Core.StateOrProvinces;
+@using System.Globalization
+@inject IHtmlLocalizer<CoreResource> L
+@model CreateModalModel
+@{
+    Layout = null;
+}
+
+<form data-ajaxForm="true" asp-page="/Core/StateOrProvinces/CreateModal" autocomplete="off">
+    <abp-modal>
+        <abp-modal-header title="@L["NewStateOrProvince"].Value"></abp-modal-header>
+
+        <abp-modal-body>
+            
+            <abp-input asp-for="StateOrProvince.Name"/>
+
+            <abp-input asp-for="StateOrProvince.Code3"/>
+
+            <abp-input asp-for="StateOrProvince.Type"/>
+
+            <div class="form-group">
+                <label for="StateOrProvince_CountryId">@L["Country"]</label>
+                <select id="StateOrProvince_CountryId"
+                        class="custom-select form-control"
+                        name="StateOrProvince.CountryId"
+                        data-value="@Model.StateOrProvince.CountryId" required>
+                </select>
+            </div>
+
+        </abp-modal-body>
+
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
+    </abp-modal>
+</form>

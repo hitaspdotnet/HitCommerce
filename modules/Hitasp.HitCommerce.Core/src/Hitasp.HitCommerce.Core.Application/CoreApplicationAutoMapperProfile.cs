@@ -1,3 +1,4 @@
+using Hitasp.HitCommerce.Core.StateOrProvinces;
 using System;
 using Hitasp.HitCommerce.Core.Shared;
 using Volo.Abp.AutoMapper;
@@ -17,6 +18,12 @@ namespace Hitasp.HitCommerce.Core
             CreateMap<CountryCreateDto, Country>().IgnoreFullAuditedObjectProperties().Ignore(x => x.Id);
             CreateMap<CountryUpdateDto, Country>().IgnoreFullAuditedObjectProperties().Ignore(x => x.Id);
             CreateMap<Country, CountryDto>();
+            CreateMap<Country, LookupDto<Guid>>().ForMember(dest => dest.DisplayName, opt => opt.MapFrom(src => src.Name));
+
+            CreateMap<StateOrProvinceCreateDto, StateOrProvince>().IgnoreFullAuditedObjectProperties().Ignore(x => x.Id);
+            CreateMap<StateOrProvinceUpdateDto, StateOrProvince>().IgnoreFullAuditedObjectProperties().Ignore(x => x.Id);
+            CreateMap<StateOrProvince, StateOrProvinceDto>();
+            CreateMap<StateOrProvinceWithNavigationProperties, StateOrProvinceWithNavigationPropertiesDto>();
         }
     }
 }

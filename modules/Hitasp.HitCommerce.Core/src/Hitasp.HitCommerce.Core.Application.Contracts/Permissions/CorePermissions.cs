@@ -18,5 +18,13 @@ namespace Hitasp.HitCommerce.Core.Permissions
             public const string Create = Default + ".Create";
             public const string Delete = Default + ".Delete";
         }
+
+        public class StateOrProvinces
+        {
+            public const string Default = GroupName + ".StateOrProvinces";
+            public const string Edit = Default + ".Edit";
+            public const string Create = Default + ".Create";
+            public const string Delete = Default + ".Delete";
+        }
     }
 }

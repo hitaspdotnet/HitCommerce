@@ -1,3 +1,4 @@
+using Hitasp.HitCommerce.Core.StateOrProvinces;
 using Volo.Abp.EntityFrameworkCore.Modeling;
 using Hitasp.HitCommerce.Core.Countries;
 using System;
@@ -50,6 +51,19 @@ namespace Hitasp.HitCommerce.Core.EntityFrameworkCore
         b.Property(x => x.Code3).HasColumnName(nameof(Country.Code3)).HasMaxLength(CountryConsts.Code3MaxLength);
         b.Property(x => x.IsBillingEnabled).HasColumnName(nameof(Country.IsBillingEnabled));
         b.Property(x => x.IsShippingEnabled).HasColumnName(nameof(Country.IsShippingEnabled));
+    });
+
+            }
+            if (builder.IsHostDatabase())
+            {
+                builder.Entity<StateOrProvince>(b =>
+    {
+        b.ToTable(CoreDbProperties.DbTablePrefix + "StateOrProvinces", CoreDbProperties.DbSchema);
+        b.ConfigureByConvention();
+        b.Property(x => x.Name).HasColumnName(nameof(StateOrProvince.Name)).IsRequired().HasMaxLength(StateOrProvinceConsts.NameMaxLength);
+        b.Property(x => x.Code3).HasColumnName(nameof(StateOrProvince.Code3)).HasMaxLength(StateOrProvinceConsts.Code3MaxLength);
+        b.Property(x => x.Type).HasColumnName(nameof(StateOrProvince.Type)).HasMaxLength(StateOrProvinceConsts.TypeMaxLength);
+        b.HasOne<Country>().WithMany().IsRequired().HasForeignKey(x => x.CountryId);
     });
 
             }

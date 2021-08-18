@@ -1,3 +1,4 @@
+using Hitasp.HitCommerce.Core.StateOrProvinces;
 using Hitasp.HitCommerce.Core.Countries;
 using AutoMapper;
 
@@ -12,6 +13,8 @@ namespace Hitasp.HitCommerce.Core.Web
              * into multiple profile classes for a better organization. */
 
             CreateMap<CountryDto, CountryUpdateDto>();
+
+            CreateMap<StateOrProvinceDto, StateOrProvinceUpdateDto>();
         }
     }
 }
