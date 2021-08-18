@@ -1,0 +1,84 @@
+@page
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Hitasp.HitCommerce.Core.Localization
+@using Hitasp.HitCommerce.Core.Web.Pages.Core.Addresses
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using Hitasp.HitCommerce.Core.Addresses;
+@using System.Globalization
+@inject IHtmlLocalizer<CoreResource> L
+@model EditModalModel
+@{
+    Layout = null;
+}
+
+<form data-ajaxForm="true" asp-page="/Core/Addresses/EditModal" autocomplete="off">
+    <abp-modal>
+        <abp-modal-header title="@L["Update"].Value"></abp-modal-header>
+
+        <abp-modal-body>
+            <abp-input asp-for="Id"/>
+
+            <abp-input asp-for="Address.ContactName"/>
+
+            <abp-input asp-for="Address.Phone"/>
+
+            <abp-input asp-for="Address.AddressLine1"/>
+
+            <abp-input asp-for="Address.AddressLine2"/>
+
+            <abp-input asp-for="Address.ZipOrPostalCode"/>
+
+            <div class="form-group">
+                <label for="Address_CountryId">@L["Country"]</label>
+                <select id="Address_CountryId"
+                        name="Address.CountryId"
+                        class="custom-select form-control"
+                        data-value="@Model.Address.CountryId" required>
+                    @if (Model.Country != null)
+                    {
+                        <option value="@Model.Address.CountryId">@Model.Country.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Address_StateOrProvinceId">@L["StateOrProvince"]</label>
+                <select id="Address_StateOrProvinceId"
+                        name="Address.StateOrProvinceId"
+                        class="custom-select form-control"
+                        data-value="@Model.Address.StateOrProvinceId" required>
+                    @if (Model.StateOrProvince != null)
+                    {
+                        <option value="@Model.Address.StateOrProvinceId">@Model.StateOrProvince.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Address_CityId">@L["City"]</label>
+                <select id="Address_CityId"
+                        name="Address.CityId"
+                        class="custom-select form-control"
+                        data-value="@Model.Address.CityId">
+                    @if (Model.City != null)
+                    {
+                        <option value="@Model.Address.CityId">@Model.City.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Address_DistrictId">@L["District"]</label>
+                <select id="Address_DistrictId"
+                        name="Address.DistrictId"
+                        class="custom-select form-control"
+                        data-value="@Model.Address.DistrictId">
+                    @if (Model.District != null)
+                    {
+                        <option value="@Model.Address.DistrictId">@Model.District.Name</option>
+                    }
+                </select>
+            </div>
+
+        </abp-modal-body>
+
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel | AbpModalButtons.Save)"></abp-modal-footer>
+    </abp-modal>
+</form>

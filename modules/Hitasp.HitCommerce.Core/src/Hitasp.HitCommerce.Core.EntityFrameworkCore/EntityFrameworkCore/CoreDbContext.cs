@@ -1,3 +1,4 @@
+using Hitasp.HitCommerce.Core.Addresses;
 using Hitasp.HitCommerce.Core.Districts;
 using Hitasp.HitCommerce.Core.Cities;
 using Hitasp.HitCommerce.Core.StateOrProvinces;
@@ -12,6 +13,7 @@ namespace Hitasp.HitCommerce.Core.EntityFrameworkCore
     [ConnectionStringName(CoreDbProperties.ConnectionStringName)]
     public class CoreDbContext : AbpDbContext<CoreDbContext>, ICoreDbContext
     {
+        public DbSet<Address> Addresses { get; set; }
         public DbSet<District> Districts { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<StateOrProvince> StateOrProvinces { get; set; }

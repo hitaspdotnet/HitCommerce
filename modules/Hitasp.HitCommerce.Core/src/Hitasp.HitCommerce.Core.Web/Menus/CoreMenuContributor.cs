@@ -24,6 +24,8 @@ namespace Hitasp.HitCommerce.Core.Web.Menus
             await AddMenuItemCities(context, moduleMenu);
 
             await AddMenuItemDistricts(context, moduleMenu);
+
+            await AddMenuItemAddresses(context, moduleMenu);
         }
 
         private Task ConfigureMainMenuAsync(MenuConfigurationContext context)
@@ -93,6 +95,19 @@ namespace Hitasp.HitCommerce.Core.Web.Menus
                     "/Core/Districts",
                     icon: "fa fa-file-alt",
                     requiredPermissionName: CorePermissions.Districts.Default
+                )
+            );
+        }
+
+        private static async Task AddMenuItemAddresses(MenuConfigurationContext context, ApplicationMenuItem parentMenu)
+        {
+            parentMenu.AddItem(
+                new ApplicationMenuItem(
+                    Menus.CoreMenus.Addresses,
+                    context.GetLocalizer<CoreResource>()["Menu:Addresses"],
+                    "/Core/Addresses",
+                    icon: "fa fa-file-alt",
+                    requiredPermissionName: CorePermissions.Addresses.Default
                 )
             );
         }

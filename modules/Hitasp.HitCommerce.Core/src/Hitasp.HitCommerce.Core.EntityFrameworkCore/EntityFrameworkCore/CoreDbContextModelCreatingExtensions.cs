@@ -1,3 +1,4 @@
+using Hitasp.HitCommerce.Core.Addresses;
 using Hitasp.HitCommerce.Core.Districts;
 using Hitasp.HitCommerce.Core.Cities;
 using Hitasp.HitCommerce.Core.StateOrProvinces;
@@ -46,56 +47,90 @@ namespace Hitasp.HitCommerce.Core.EntityFrameworkCore
             if (builder.IsHostDatabase())
             {
                 builder.Entity<Country>(b =>
-    {
-        b.ToTable(CoreDbProperties.DbTablePrefix + "Countries", CoreDbProperties.DbSchema);
-        b.ConfigureByConvention();
-        b.Property(x => x.Name).HasColumnName(nameof(Country.Name)).IsRequired().HasMaxLength(CountryConsts.NameMaxLength);
-        b.Property(x => x.Code3).HasColumnName(nameof(Country.Code3)).HasMaxLength(CountryConsts.Code3MaxLength);
-        b.Property(x => x.IsBillingEnabled).HasColumnName(nameof(Country.IsBillingEnabled));
-        b.Property(x => x.IsShippingEnabled).HasColumnName(nameof(Country.IsShippingEnabled));
-    });
-
+                {
+                    b.ToTable(CoreDbProperties.DbTablePrefix + "Countries", CoreDbProperties.DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.Name).HasColumnName(nameof(Country.Name)).IsRequired()
+                        .HasMaxLength(CountryConsts.NameMaxLength);
+                    b.Property(x => x.Code3).HasColumnName(nameof(Country.Code3))
+                        .HasMaxLength(CountryConsts.Code3MaxLength);
+                    b.Property(x => x.IsBillingEnabled).HasColumnName(nameof(Country.IsBillingEnabled));
+                    b.Property(x => x.IsShippingEnabled).HasColumnName(nameof(Country.IsShippingEnabled));
+                });
             }
+
             if (builder.IsHostDatabase())
             {
                 builder.Entity<StateOrProvince>(b =>
-    {
-        b.ToTable(CoreDbProperties.DbTablePrefix + "StateOrProvinces", CoreDbProperties.DbSchema);
-        b.ConfigureByConvention();
-        b.Property(x => x.Name).HasColumnName(nameof(StateOrProvince.Name)).IsRequired().HasMaxLength(StateOrProvinceConsts.NameMaxLength);
-        b.Property(x => x.Code3).HasColumnName(nameof(StateOrProvince.Code3)).HasMaxLength(StateOrProvinceConsts.Code3MaxLength);
-        b.Property(x => x.Type).HasColumnName(nameof(StateOrProvince.Type)).HasMaxLength(StateOrProvinceConsts.TypeMaxLength);
-        b.HasOne<Country>().WithMany().IsRequired().HasForeignKey(x => x.CountryId);
-    });
-
+                {
+                    b.ToTable(CoreDbProperties.DbTablePrefix + "StateOrProvinces", CoreDbProperties.DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.Name).HasColumnName(nameof(StateOrProvince.Name)).IsRequired()
+                        .HasMaxLength(StateOrProvinceConsts.NameMaxLength);
+                    b.Property(x => x.Code3).HasColumnName(nameof(StateOrProvince.Code3))
+                        .HasMaxLength(StateOrProvinceConsts.Code3MaxLength);
+                    b.Property(x => x.Type).HasColumnName(nameof(StateOrProvince.Type))
+                        .HasMaxLength(StateOrProvinceConsts.TypeMaxLength);
+                    b.HasOne<Country>().WithMany().IsRequired().HasForeignKey(x => x.CountryId);
+                });
             }
+
             if (builder.IsHostDatabase())
             {
                 builder.Entity<City>(b =>
-    {
-        b.ToTable(CoreDbProperties.DbTablePrefix + "Cities", CoreDbProperties.DbSchema);
-        b.ConfigureByConvention();
-        b.Property(x => x.Name).HasColumnName(nameof(City.Name)).IsRequired().HasMaxLength(CityConsts.NameMaxLength);
-        b.Property(x => x.Type).HasColumnName(nameof(City.Type)).HasMaxLength(CityConsts.TypeMaxLength);
-        b.HasOne<StateOrProvince>().WithMany().IsRequired().HasForeignKey(x => x.StateOrProvinceId);
-    });
-
+                {
+                    b.ToTable(CoreDbProperties.DbTablePrefix + "Cities", CoreDbProperties.DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.Name).HasColumnName(nameof(City.Name)).IsRequired()
+                        .HasMaxLength(CityConsts.NameMaxLength);
+                    b.Property(x => x.Type).HasColumnName(nameof(City.Type)).HasMaxLength(CityConsts.TypeMaxLength);
+                    b.HasOne<StateOrProvince>().WithMany().IsRequired().HasForeignKey(x => x.StateOrProvinceId);
+                });
             }
+
             if (builder.IsHostDatabase())
             {
-
             }
+
             if (builder.IsHostDatabase())
             {
                 builder.Entity<District>(b =>
-    {
-        b.ToTable(CoreDbProperties.DbTablePrefix + "Districts", CoreDbProperties.DbSchema);
-        b.ConfigureByConvention();
-        b.Property(x => x.Name).HasColumnName(nameof(District.Name)).IsRequired().HasMaxLength(DistrictConsts.NameMaxLength);
-        b.Property(x => x.Type).HasColumnName(nameof(District.Type)).HasMaxLength(DistrictConsts.TypeMaxLength);
-        b.HasOne<City>().WithMany().IsRequired().HasForeignKey(x => x.CityId);
-    });
+                {
+                    b.ToTable(CoreDbProperties.DbTablePrefix + "Districts", CoreDbProperties.DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.Name).HasColumnName(nameof(District.Name)).IsRequired()
+                        .HasMaxLength(DistrictConsts.NameMaxLength);
+                    b.Property(x => x.Type).HasColumnName(nameof(District.Type))
+                        .HasMaxLength(DistrictConsts.TypeMaxLength);
+                    b.HasOne<City>().WithMany().IsRequired().HasForeignKey(x => x.CityId);
+                });
+            }
 
+            if (builder.IsHostDatabase())
+            {
+            }
+
+            if (builder.IsHostDatabase())
+            {
+                builder.Entity<Address>(b =>
+                {
+                    b.ToTable(CoreDbProperties.DbTablePrefix + "Addresses", CoreDbProperties.DbSchema);
+                    b.ConfigureByConvention();
+                    b.Property(x => x.ContactName).HasColumnName(nameof(Address.ContactName)).IsRequired()
+                        .HasMaxLength(AddressConsts.ContactNameMaxLength);
+                    b.Property(x => x.Phone).HasColumnName(nameof(Address.Phone)).IsRequired()
+                        .HasMaxLength(AddressConsts.PhoneMaxLength);
+                    b.Property(x => x.AddressLine1).HasColumnName(nameof(Address.AddressLine1)).IsRequired()
+                        .HasMaxLength(AddressConsts.AddressLine1MaxLength);
+                    b.Property(x => x.AddressLine2).HasColumnName(nameof(Address.AddressLine2))
+                        .HasMaxLength(AddressConsts.AddressLine2MaxLength);
+                    b.Property(x => x.ZipOrPostalCode).HasColumnName(nameof(Address.ZipOrPostalCode))
+                        .HasMaxLength(AddressConsts.ZipOrPostalCodeMaxLength);
+                    b.HasOne<Country>().WithMany().IsRequired().HasForeignKey(x => x.CountryId).OnDelete(DeleteBehavior.NoAction);
+                    b.HasOne<StateOrProvince>().WithMany().IsRequired().HasForeignKey(x => x.StateOrProvinceId).OnDelete(DeleteBehavior.NoAction);
+                    b.HasOne<City>().WithMany().HasForeignKey(x => x.CityId).OnDelete(DeleteBehavior.NoAction);
+                    b.HasOne<District>().WithMany().HasForeignKey(x => x.DistrictId).OnDelete(DeleteBehavior.NoAction);
+                });
             }
         }
     }

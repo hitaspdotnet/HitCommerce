@@ -1,3 +1,5 @@
+using Hitasp.HitCommerce.Core.Addresses;
+using Hitasp.HitCommerce.Core.Addresses;
 using Hitasp.HitCommerce.Core.Districts;
 using Hitasp.HitCommerce.Core.Districts;
 using Hitasp.HitCommerce.Core.Cities;
@@ -31,6 +33,10 @@ namespace Hitasp.HitCommerce.Core.EntityFrameworkCore
                 options.AddRepository<District, Districts.EfCoreDistrictRepository>();
 
                 options.AddRepository<District, Districts.EfCoreDistrictRepository>();
+
+                options.AddRepository<Address, Addresses.EfCoreAddressRepository>();
+
+                options.AddRepository<Address, Addresses.EfCoreAddressRepository>();
 
             });
         }

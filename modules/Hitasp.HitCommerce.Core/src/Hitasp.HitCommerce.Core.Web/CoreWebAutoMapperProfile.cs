@@ -1,3 +1,4 @@
+using Hitasp.HitCommerce.Core.Addresses;
 using Hitasp.HitCommerce.Core.Districts;
 using Hitasp.HitCommerce.Core.Cities;
 using Hitasp.HitCommerce.Core.StateOrProvinces;
@@ -21,6 +22,8 @@ namespace Hitasp.HitCommerce.Core.Web
             CreateMap<CityDto, CityUpdateDto>();
 
             CreateMap<DistrictDto, DistrictUpdateDto>();
+
+            CreateMap<AddressDto, AddressUpdateDto>();
         }
     }
 }

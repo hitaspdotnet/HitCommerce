@@ -37,6 +37,16 @@
     "Permission:Districts": "Districts",
     "Districts": "Districts",
     "NewDistrict": "New District",
-    "Menu:Districts": "Districts"
+    "Menu:Districts": "Districts",
+    "District": "District",
+    "Permission:Addresses": "Addresses",
+    "Addresses": "Addresses",
+    "NewAddress": "New Address",
+    "ContactName": "Contact Name",
+    "Phone": "Phone",
+    "AddressLine1": "Address Line 1",
+    "AddressLine2": "Address Line 2",
+    "ZipOrPostalCode": "Zip Or Postal Code",
+    "Menu:Addresses": "Addresses"
   }
 }
