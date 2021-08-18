@@ -19,8 +19,10 @@ namespace Hitasp.HitCommerce.Core.Web.Pages.Core.Addresses
         public string AddressLine1Filter { get; set; }
         public string AddressLine2Filter { get; set; }
         public string ZipOrPostalCodeFilter { get; set; }
+
         [SelectItems(nameof(CountryLookupList))]
         public Guid CountryIdFilter { get; set; }
+
         public List<SelectListItem> CountryLookupList { get; set; } = new List<SelectListItem>
         {
             new SelectListItem(string.Empty, "")
@@ -28,13 +30,14 @@ namespace Hitasp.HitCommerce.Core.Web.Pages.Core.Addresses
 
         [SelectItems(nameof(StateOrProvinceLookupList))]
         public Guid StateOrProvinceIdFilter { get; set; }
+
         public List<SelectListItem> StateOrProvinceLookupList { get; set; } = new List<SelectListItem>
         {
             new SelectListItem(string.Empty, "")
         };
 
-        [SelectItems(nameof(CityLookupList))]
-        public Guid? CityIdFilter { get; set; }
+        [SelectItems(nameof(CityLookupList))] public Guid? CityIdFilter { get; set; }
+
         public List<SelectListItem> CityLookupList { get; set; } = new List<SelectListItem>
         {
             new SelectListItem(string.Empty, "")
@@ -42,6 +45,7 @@ namespace Hitasp.HitCommerce.Core.Web.Pages.Core.Addresses
 
         [SelectItems(nameof(DistrictLookupList))]
         public Guid? DistrictIdFilter { get; set; }
+
         public List<SelectListItem> DistrictLookupList { get; set; } = new List<SelectListItem>
         {
             new SelectListItem(string.Empty, "")
@@ -56,46 +60,33 @@ namespace Hitasp.HitCommerce.Core.Web.Pages.Core.Addresses
 
         public async Task OnGetAsync()
         {
-            var countries = await _addressesAppService.GetCountryLookupAsync(new LookupRequestDto
-            {
-                MaxResultCount = LimitedResultRequestDto.MaxMaxResultCount
-            });
-            
-            CountryLookupList.AddRange(countries.Items.Select(t => new SelectListItem(t.DisplayName, t.Id.ToString())).ToList()
+            CountryLookupList.AddRange((
+                    await _addressesAppService.GetCountryLookupAsync(new LookupRequestDto
+                    {
+                        MaxResultCount = LimitedResultRequestDto.MaxMaxResultCount
+                    })).Items.Select(t => new SelectListItem(t.DisplayName, t.Id.ToString())).ToList()
             );
 
-            if (countries.Items.Any())
-            {
-                var stateOrProvince = await _addressesAppService.GetStateOrProvinceLookupAsync(countries.Items[0].Id, new LookupRequestDto
-                {
-                    MaxResultCount = LimitedResultRequestDto.MaxMaxResultCount
-                });
-                StateOrProvinceLookupList.AddRange(
-                    stateOrProvince.Items.Select(t => new SelectListItem(t.DisplayName, t.Id.ToString())).ToList()
-                );
-
-                if (stateOrProvince.Items.Any())
-                {
-                    var cities = 
-                        await _addressesAppService.GetCityLookupAsync(stateOrProvince.Items[0].Id,new LookupRequestDto
-                        {
-                            MaxResultCount = LimitedResultRequestDto.MaxMaxResultCount
-                        });
-                    CityLookupList.AddRange(cities.Items.Select(t => new SelectListItem(t.DisplayName, t.Id.ToString())).ToList()
-                    );
-
-                    if (cities.Items.Any() && cities.Items[0].Id.HasValue)
+            StateOrProvinceLookupList.AddRange((
+                    await _addressesAppService.GetStateOrProvinceLookupAsync(Guid.Empty, new LookupRequestDto
                     {
-                        var districts =
-                            await _addressesAppService.GetDistrictLookupAsync(cities.Items[0].Id.Value, new LookupRequestDto
-                            {
-                                MaxResultCount = LimitedResultRequestDto.MaxMaxResultCount
-                            });
-                        DistrictLookupList.AddRange(districts.Items.Select(t => new SelectListItem(t.DisplayName, t.Id.ToString())).ToList()
-                        );
-                    }
-                }
-            }
+                        MaxResultCount = LimitedResultRequestDto.MaxMaxResultCount
+                    })).Items.Select(t => new SelectListItem(t.DisplayName, t.Id.ToString())).ToList()
+            );
+
+            CityLookupList.AddRange((
+                    await _addressesAppService.GetCityLookupAsync(Guid.Empty, new LookupRequestDto
+                    {
+                        MaxResultCount = LimitedResultRequestDto.MaxMaxResultCount
+                    })).Items.Select(t => new SelectListItem(t.DisplayName, t.Id.ToString())).ToList()
+            );
+
+            DistrictLookupList.AddRange((
+                    await _addressesAppService.GetDistrictLookupAsync(Guid.Empty, new LookupRequestDto
+                    {
+                        MaxResultCount = LimitedResultRequestDto.MaxMaxResultCount
+                    })).Items.Select(t => new SelectListItem(t.DisplayName, t.Id.ToString())).ToList()
+            );
 
             await Task.CompletedTask;
         }

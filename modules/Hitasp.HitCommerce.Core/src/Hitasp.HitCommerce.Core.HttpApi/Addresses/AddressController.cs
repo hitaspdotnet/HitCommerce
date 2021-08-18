@@ -51,21 +51,21 @@ namespace Hitasp.HitCommerce.Core.Addresses
 
         [HttpGet]
         [Route("state-or-province-lookup/{countryId}")]
-        public Task<PagedResultDto<LookupDto<Guid>>> GetStateOrProvinceLookupAsync(Guid countryId, LookupRequestDto input)
+        public Task<PagedResultDto<LookupDto<Guid>>> GetStateOrProvinceLookupAsync(Guid? countryId, LookupRequestDto input)
         {
             return _addressesAppService.GetStateOrProvinceLookupAsync(countryId, input);
         }
 
         [HttpGet]
         [Route("city-lookup/{stateOrProvinceId}")]
-        public Task<PagedResultDto<LookupDto<Guid?>>> GetCityLookupAsync(Guid stateOrProvinceId, LookupRequestDto input)
+        public Task<PagedResultDto<LookupDto<Guid?>>> GetCityLookupAsync(Guid? stateOrProvinceId, LookupRequestDto input)
         {
             return _addressesAppService.GetCityLookupAsync(stateOrProvinceId, input);
         }
 
         [HttpGet]
         [Route("district-lookup/{cityId}")]
-        public Task<PagedResultDto<LookupDto<Guid?>>> GetDistrictLookupAsync(Guid cityId, LookupRequestDto input)
+        public Task<PagedResultDto<LookupDto<Guid?>>> GetDistrictLookupAsync(Guid? cityId, LookupRequestDto input)
         {
             return _addressesAppService.GetDistrictLookupAsync(cityId, input);
         }

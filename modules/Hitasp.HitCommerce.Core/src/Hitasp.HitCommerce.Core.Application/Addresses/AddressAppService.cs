@@ -82,10 +82,11 @@ namespace Hitasp.HitCommerce.Core.Addresses
             };
         }
 
-        public virtual async Task<PagedResultDto<LookupDto<Guid>>> GetStateOrProvinceLookupAsync(Guid countryId, LookupRequestDto input)
+        public virtual async Task<PagedResultDto<LookupDto<Guid>>> GetStateOrProvinceLookupAsync(Guid? countryId, LookupRequestDto input)
         {
             var query = _stateOrProvinceRepository.AsQueryable()
-                .Where(x => x.CountryId == countryId)
+                .WhereIf(countryId != null && countryId != Guid.Empty,
+                    e => e.CountryId == countryId)
                 .WhereIf(!string.IsNullOrWhiteSpace(input.Filter),
                     x => x.Name != null &&
                          x.Name.Contains(input.Filter));
@@ -100,10 +101,11 @@ namespace Hitasp.HitCommerce.Core.Addresses
             };
         }
 
-        public virtual async Task<PagedResultDto<LookupDto<Guid?>>> GetCityLookupAsync(Guid stateOrProvinceId, LookupRequestDto input)
+        public virtual async Task<PagedResultDto<LookupDto<Guid?>>> GetCityLookupAsync(Guid? stateOrProvinceId, LookupRequestDto input)
         {
             var query = _cityRepository.AsQueryable()
-                .Where(x => x.StateOrProvinceId == stateOrProvinceId)
+                .WhereIf(stateOrProvinceId != null && stateOrProvinceId != Guid.Empty,
+                    e => e.StateOrProvinceId == stateOrProvinceId)
                 .WhereIf(!string.IsNullOrWhiteSpace(input.Filter),
                     x => x.Name != null &&
                          x.Name.Contains(input.Filter));
@@ -117,10 +119,11 @@ namespace Hitasp.HitCommerce.Core.Addresses
             };
         }
 
-        public virtual async Task<PagedResultDto<LookupDto<Guid?>>> GetDistrictLookupAsync(Guid cityId, LookupRequestDto input)
+        public virtual async Task<PagedResultDto<LookupDto<Guid?>>> GetDistrictLookupAsync(Guid? cityId, LookupRequestDto input)
         {
             var query = _districtRepository.AsQueryable()
-                .Where(x => x.CityId == cityId)
+                .WhereIf(cityId != null && cityId != Guid.Empty,
+                    e => e.CityId == cityId)
                 .WhereIf(!string.IsNullOrWhiteSpace(input.Filter),
                     x => x.Name != null &&
                          x.Name.Contains(input.Filter));

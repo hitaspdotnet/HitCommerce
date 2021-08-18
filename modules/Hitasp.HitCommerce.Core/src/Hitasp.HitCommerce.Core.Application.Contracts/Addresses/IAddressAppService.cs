@@ -16,11 +16,11 @@ namespace Hitasp.HitCommerce.Core.Addresses
 
         Task<PagedResultDto<LookupDto<Guid>>> GetCountryLookupAsync(LookupRequestDto input);
 
-        Task<PagedResultDto<LookupDto<Guid>>> GetStateOrProvinceLookupAsync(Guid countryId, LookupRequestDto input);
+        Task<PagedResultDto<LookupDto<Guid>>> GetStateOrProvinceLookupAsync(Guid? countryId, LookupRequestDto input);
 
-        Task<PagedResultDto<LookupDto<Guid?>>> GetCityLookupAsync(Guid stateOrProvinceId, LookupRequestDto input);
+        Task<PagedResultDto<LookupDto<Guid?>>> GetCityLookupAsync(Guid? stateOrProvinceId, LookupRequestDto input);
 
-        Task<PagedResultDto<LookupDto<Guid?>>> GetDistrictLookupAsync(Guid cityId, LookupRequestDto input);
+        Task<PagedResultDto<LookupDto<Guid?>>> GetDistrictLookupAsync(Guid? cityId, LookupRequestDto input);
 
         Task DeleteAsync(Guid id);
 
