@@ -26,7 +26,8 @@ namespace Hitasp.HitCommerce.Core.Countries
 
         public Country(Guid id, string name, string code3, bool isBillingEnabled, bool isShippingEnabled) : base(id)
         {
-            
+            SetName(name);
+            SetCode3(code3);
             IsBillingEnabled = isBillingEnabled;
             IsShippingEnabled = isShippingEnabled;
         }

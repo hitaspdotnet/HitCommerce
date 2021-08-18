@@ -66,6 +66,7 @@ namespace Hitasp.HitCommerce.IdentityServer
         private async Task CreateApiScopesAsync()
         {
             await CreateApiScopeAsync("HitCommerce");
+            await CreateApiScopeAsync("HitCommercePublic");
         }
 
         private async Task CreateApiResourcesAsync()
@@ -81,6 +82,7 @@ namespace Hitasp.HitCommerce.IdentityServer
             };
 
             await CreateApiResourceAsync("HitCommerce", commonApiUserClaims);
+            await CreateApiResourceAsync("HitCommercePublic", commonApiUserClaims);
         }
 
         private async Task<ApiResource> CreateApiResourceAsync(string name, IEnumerable<string> claims)
@@ -137,7 +139,8 @@ namespace Hitasp.HitCommerce.IdentityServer
                 "role",
                 "phone",
                 "address",
-                "HitCommerce"
+                "HitCommerce",
+                "HitCommercePublic"
             };
 
             var configurationSection = _configuration.GetSection("IdentityServer:Clients");
@@ -161,6 +164,23 @@ namespace Hitasp.HitCommerce.IdentityServer
                 );
             }
 
+                        //Public Web Client
+            var publicWebClientId = configurationSection["HitCommerce_PublicWeb:ClientId"];
+            if (!publicWebClientId.IsNullOrWhiteSpace())
+            {
+                var publicWebClientRootUrl = configurationSection["HitCommerce_PublicWeb:RootUrl"].EnsureEndsWith('/');
+
+                await CreateClientAsync(
+                    name: publicWebClientId,
+                    scopes: commonScopes,
+                    grantTypes: new[] {"hybrid"},
+                    secret: (configurationSection["HitCommerce_PublicWeb:ClientSecret"] ?? "1q2w3e*").Sha256(),
+                    redirectUri: $"{publicWebClientRootUrl}signin-oidc",
+                    postLogoutRedirectUri: $"{publicWebClientRootUrl}signout-callback-oidc",
+                    frontChannelLogoutUri: $"{publicWebClientRootUrl}Account/FrontChannelLogout",
+                    corsOrigins: new[] {publicWebClientRootUrl.RemovePostFix("/")}
+                );
+            }
 
             //Console Test / Angular Client
             var consoleAndAngularClientId = configurationSection["HitCommerce_App:ClientId"];

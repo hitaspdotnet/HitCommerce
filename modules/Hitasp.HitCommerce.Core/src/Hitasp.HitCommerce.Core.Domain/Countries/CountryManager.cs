@@ -17,13 +17,14 @@ namespace Hitasp.HitCommerce.Core.Countries
             bool isShippingEnabled = false)
         {
             await CheckCountryName(name);
+            await CheckCountryCode(code3);
 
             return new Country(GuidGenerator.Create(), name, code3, isBillingEnabled, isShippingEnabled);
         }
 
         public virtual async Task RenameAsync(Country country, string newName)
         {
-            if (country.Name == newName)
+            if (string.Equals(country.Name.Trim(), newName.Trim(), StringComparison.CurrentCultureIgnoreCase))
             {
                 return;
             }
@@ -34,7 +35,7 @@ namespace Hitasp.HitCommerce.Core.Countries
 
         public virtual async Task ChangeCodeAsync(Country country, string newCode)
         {
-            if (country.Code3 == newCode)
+            if (country.Code3 != null && string.Equals(country.Code3.Trim(), newCode.Trim(), StringComparison.CurrentCultureIgnoreCase))
             {
                 return;
             }
@@ -48,7 +49,7 @@ namespace Hitasp.HitCommerce.Core.Countries
             var country = await CountryRepository.FindByNameAsync(name);
             if (country != null)
             {
-                throw new CountryAlreadyExistException(name);
+                throw new CountryNameAlreadyExistException(name);
             }
         }
 
@@ -57,7 +58,7 @@ namespace Hitasp.HitCommerce.Core.Countries
             var country = await CountryRepository.FindByCodeAsync(code);
             if (country != null)
             {
-                throw new CountryAlreadyExistException(code);
+                throw new CountryCodeAlreadyExistException(code);
             }
         }
     }

@@ -6,15 +6,15 @@ using Volo.Abp;
 namespace Hitasp.HitCommerce.Core.Countries
 {
     [Serializable]
-    public class CountryAlreadyExistException : BusinessException
+    public class CountryNameAlreadyExistException : BusinessException
     {
-        public CountryAlreadyExistException([NotNull] string countryName)
+        public CountryNameAlreadyExistException([NotNull] string countryName)
         {
-            Code = CoreErrorCodes.CountryAlreadyExist;
+            Code = CoreErrorCodes.CountryNameAlreadyExist;
             WithData("CountryName", countryName);
         }
         
-        public CountryAlreadyExistException(SerializationInfo serializationInfo, StreamingContext context)
+        public CountryNameAlreadyExistException(SerializationInfo serializationInfo, StreamingContext context)
             : base(serializationInfo, context)
         {
             

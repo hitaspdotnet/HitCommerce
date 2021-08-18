@@ -1,7 +1,7 @@
 $(function () {
     var l = abp.localization.getResource("Core");
 	
-	var countryService = window.hitasp.hitCommerce.core.countries.countries;
+	var countryService = window.hitasp.hitCommerce.core.countries.country;
 	
 	
     var createModal = new abp.ModalManager({

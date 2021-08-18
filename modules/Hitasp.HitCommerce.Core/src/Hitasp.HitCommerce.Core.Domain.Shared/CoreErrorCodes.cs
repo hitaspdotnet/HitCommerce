@@ -2,6 +2,7 @@
 {
     public static class CoreErrorCodes
     {
-        public const string CountryAlreadyExist = "HitCommerceCore:0001";
+        public const string CountryNameAlreadyExist = "HitCommerceCore:0001";
+        public const string CountryCodeAlreadyExist = "HitCommerceCore:0002";
     }
 }

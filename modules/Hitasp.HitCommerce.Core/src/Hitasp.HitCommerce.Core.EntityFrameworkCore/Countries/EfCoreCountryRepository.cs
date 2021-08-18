@@ -21,12 +21,14 @@ namespace Hitasp.HitCommerce.Core.Countries
 
         public virtual async Task<Country> FindByNameAsync(string name, CancellationToken cancellationToken = default)
         {
-            return await base.FindAsync(x => x.Name == name, cancellationToken: GetCancellationToken(cancellationToken));
+            var query = ApplyFilter((await GetQueryableAsync()), filterText:null, name: name );
+            return await query.FirstOrDefaultAsync(GetCancellationToken(cancellationToken));
         }
 
         public virtual async Task<Country> FindByCodeAsync(string code, CancellationToken cancellationToken = default)
         {
-            return await base.FindAsync(x => x.Code3 == code, cancellationToken: GetCancellationToken(cancellationToken));
+            var query = ApplyFilter((await GetQueryableAsync()), filterText:null, code3: code );
+            return await query.FirstOrDefaultAsync(GetCancellationToken(cancellationToken));
         }
 
         public async Task<List<Country>> GetListAsync(
